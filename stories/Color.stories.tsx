@@ -130,6 +130,11 @@ function ColorPage({ globals }: { globals: Record<string, unknown> }) {
   )
 }
 
-const meta: Meta = { title: '기초/색' }
+const meta: Meta = {
+  title: '기초/색',
+  // 대비가 낮은 단계(45 이하)와 fg-disabled를 일부러 보여 주는 페이지라 axe 대비 규칙만 끈다.
+  // 실제 대비 보장은 npm run check:contrast가 맡는다.
+  parameters: { a11y: { config: { rules: [{ id: 'color-contrast', enabled: false }] } } },
+}
 export default meta
 export const 색: StoryObj = { render: (_, { globals }) => <ColorPage globals={globals} /> }

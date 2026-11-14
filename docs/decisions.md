@@ -53,3 +53,9 @@
 | 2026-11-15 | 임의 값은 색·간격·크기 유틸리티만 막고, `var(--uc-*)`와 grid 템플릿·variant(`[&_svg]:`)는 허용 | 레이아웃 표현까지 막으면 우회 코드가 생김 |
 | 2026-11-15 | Button 아이콘 크기를 size마다 토큰 크기로 (임의 값 `1.15em` 제거) | lint 규칙을 컴포넌트에도 똑같이 |
 | 2026-11-15 | Claude Code 스킬 이름 = `uc-ui`, 저장소 안 `.claude/skills/`. 다른 프로젝트엔 AGENTS.md·DESIGN.md·스킬·eslint 설정을 같이 복사 | 코드 복사형 배포(원칙 9)와 같은 방식 |
+| 2026-11-15 | 다크 모드에서 tone 계열 5~30단계 채도를 OKLCH 0.045로 제한, 다크 `fg.{tone}` = 70 | weak 배경이 진한 남색·빨강이라 무거움(Alert에서 뚜렷). 채도를 줄이니 hover 위 tone 글자가 4.3~4.5로 미달 → 한 단계 밝게 |
+| 2026-11-15 | Textarea · Alert를 2차에서 먼저, Input·Textarea는 `Field` 공유 | AI 테스트에서 둘 다 없어서 AI가 직접 조립함 |
+| 2026-11-15 | Alert: danger만 `role="alert"`, 나머지 `role="status"`. 글자는 기본색(fg.default/muted), 아이콘만 tone | 긴 글도 읽기 쉽게. 대비 검사에 weak 배경 위 fg.default·muted 짝 추가 |
+| 2026-11-15 | 배포 = GitHub Actions → Pages. 빌드 전에 대비 검사·lint·타입 검사·생성 파일 최신 여부 | 깨진 토큰이 배포되지 않게 |
+| 2026-11-15 | `npm run copy-to -- <폴더> [--swift]`로 다른 프로젝트에 복사 | README만 보고 붙일 수 있게 (M4 완료 기준) |
+| 2026-11-15 | 받는 프로젝트의 TypeScript는 5.9로 (TypeScript 7 미지원) | 새 Vite 템플릿으로 붙여 보니 typescript-eslint가 TS 7을 아직 지원 안 함 |

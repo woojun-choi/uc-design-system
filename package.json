@@ -10,7 +10,8 @@
     "storybook": "npm run tokens && storybook dev -p 6006",
     "build-storybook": "npm run tokens && storybook build",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "copy-to": "tsx scripts/copy-to.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

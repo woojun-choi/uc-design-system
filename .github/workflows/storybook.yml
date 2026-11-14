@@ -1,0 +1,48 @@
+# main에 push하면 Storybook을 빌드해 GitHub Pages에 배포한다.
+# 처음 한 번: 저장소 Settings → Pages → Source를 "GitHub Actions"로.
+name: Storybook
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # 토큰 생성 + 대비 검사 + lint가 통과해야 배포
+      - run: npm run tokens
+      # 커밋된 생성 파일이 tokens/와 맞는지 (안 맞으면 npm run tokens 후 커밋을 빠뜨린 것)
+      - run: git diff --exit-code -- src/styles dist
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npx storybook build -o storybook-static
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: storybook-static
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

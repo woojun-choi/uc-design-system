@@ -23,6 +23,8 @@ for (const l of LAYERS) {
 for (const t of TONES) {
   for (const s of ['solid', 'solid-hover', 'solid-pressed']) pairs.push([`fg-on-${t}`, `bg-${t}-${s}`, 4.5])
   for (const s of ['weak', 'weak-hover']) pairs.push([`fg-${t}`, `bg-${t}-${s}`, 4.5])
+  // Alert: 연한 tone 배경 위 본문
+  for (const f of ['default', 'muted']) pairs.push([`fg-${f}`, `bg-${t}-weak`, 4.5])
 }
 
 let fails = 0

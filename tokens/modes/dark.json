@@ -1,5 +1,5 @@
 {
-  "$description": "다크 모드 덮어쓰기. solid 배경 위 흰 글자(4.5↑)와 배경 대비(3↑)를 둘 다 맞추는 단계가 45뿐이라 solid = 45, hover·pressed = 40",
+  "$description": "다크 모드 덮어쓰기. solid 배경 위 흰 글자(4.5↑)와 배경 대비(3↑)를 둘 다 맞추는 단계가 45뿐이라 solid = 45, hover·pressed = 40. tone 글자(fg.brand 등)는 70 — 채도를 줄인 weak 배경(hover 포함) 위에서도 4.5 이상",
   "bg": {
     "brand": {
       "solid": {
@@ -63,6 +63,21 @@
   "fg": {
     "on-warning": {
       "$value": "{color.background}"
+    },
+    "brand": {
+      "$value": "{color.brand.70}"
+    },
+    "danger": {
+      "$value": "{color.red.70}"
+    },
+    "success": {
+      "$value": "{color.green.70}"
+    },
+    "warning": {
+      "$value": "{color.yellow.70}"
+    },
+    "info": {
+      "$value": "{color.blue.70}"
     }
   }
 }

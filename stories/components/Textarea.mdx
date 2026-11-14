@@ -1,0 +1,42 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks'
+import * as Stories from './Textarea.stories'
+
+<Meta of={Stories} />
+
+# Textarea
+
+여러 줄 입력. 라벨 · 도움말 · 에러는 [Input](?path=/docs/컴포넌트-input--docs)과 똑같이 동작한다 (둘 다 `Field`를 쓴다).
+
+<Canvas of={Stories.기본} />
+<Controls of={Stories.기본} />
+
+## 언제 쓰나 / 언제 안 쓰나
+| 쓴다 | 안 쓴다 |
+|---|---|
+| 소개, 메모, 사진 설명처럼 길어질 수 있는 글 | 한 줄 값(이름, 이메일) → Input |
+
+<Canvas of={Stories.상태} />
+
+## Do · Don't
+| ✓ Do | ✗ Don't |
+|---|---|
+| 글자 수 제한이 있으면 `hint`로 미리 알리기 + `maxLength` | 제출하고 나서야 "너무 길어요" |
+| 내용에 맞춰 늘어나게 둔다 (기본) | 높이를 고정해 스크롤 안에 가두기 |
+
+## 접근성 체크
+- [x] Input과 같음: `<label for>`, `aria-describedby`(에러 먼저), `aria-invalid`, `required`
+- [x] 내용만큼 높이가 늘어남 (`field-sizing: content`, 지원 안 하는 브라우저는 `rows` 높이 + 손잡이로 조절)
+
+## 코드
+```tsx
+import { Textarea } from '@/components/ui/textarea'
+
+<Textarea label="소개" hint="200자까지 쓸 수 있어요" maxLength={200} />
+```
+
+<ArgTypes of={Stories} />
+
+## 변경 이력
+| 날짜 | 내용 |
+|---|---|
+| 2026-11-15 | 처음 만듦 (M4). Input과 `Field`를 나눠 씀 |

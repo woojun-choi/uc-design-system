@@ -19,7 +19,8 @@ shadcn/ui 컴포넌트를 가져와 uc 토큰으로 바꿔 끼운다. Radix 기�
 > M2 완료 (2026-11-14): `src/components/ui/`, 문서는 Storybook `컴포넌트/*` (MDX 1장씩).
 
 ## 2차 — 기본기 채우기
-Typography(Heading/Text), Separator, Textarea, Select, Sheet, Tooltip
+- [x] **Textarea** · **Alert** (M4, AI 테스트에서 빠져서 먼저). Input과 Textarea는 `field.tsx`(라벨·도움말·에러 틀)를 같이 씀
+- [ ] Typography(Heading/Text), Separator, Select, Sheet, Tooltip — 포트폴리오에서 필요해질 때
 
 ## 3차 — 포트폴리오에 적용할 때
 Image/Figure(캡션), Gallery Grid, Lightbox, 내비게이션

@@ -4,6 +4,7 @@
  * Node(빌드 스크립트)와 브라우저(Storybook) 양쪽에서 쓴다.
  */
 import { BackgroundColor, Color, Theme } from '@adobe/leonardo-contrast-colors'
+import { clampChroma, formatHex, oklch } from 'culori'
 
 export const STEPS = [5, 10, 20, 30, 40, 45, 50, 60, 70, 80, 90, 95] as const
 export type Step = (typeof STEPS)[number]
@@ -19,6 +20,19 @@ export type Contrast = 'standard' | 'more'
 
 /** 고대비 모드에서 Leonardo contrast 배율 (docs/04-tokens.md §9) */
 export const CONTRAST_MORE = 1.4
+
+/**
+ * 어두운 배경에서 낮은 단계(5~30)는 Leonardo가 채도를 그대로 둬서 진한 남색·자주색이 된다.
+ * weak 배경으로 쓰기에 무거워서 이 단계만 채도를 줄인다 (밝기는 그대로 → 대비 거의 그대로).
+ */
+const DARK_MUTED_STEPS: Step[] = [5, 10, 20, 30]
+const DARK_MAX_CHROMA = 0.045
+
+function muteChroma(hex: string): string {
+  const c = oklch(hex)
+  if (!c || (c.c ?? 0) <= DARK_MAX_CHROMA) return hex
+  return formatHex(clampChroma({ ...c, c: DARK_MAX_CHROMA }, 'oklch'))
+}
 
 export interface PaletteInput {
   /** 회색 계열 key 색. 배경도 이 계열에서 나온다 */
@@ -52,8 +66,17 @@ export function generatePalette({ gray, colors, lightness, contrast = 1 }: Palet
   } finally {
     console.warn = warn
   }
+  const dark = lightness < 50
   const scales = Object.fromEntries(
-    out.map((c) => [c.name, Object.fromEntries(STEPS.map((s, i) => [s, c.values[i].value])) as Record<Step, string>]),
+    out.map((c) => [
+      c.name,
+      Object.fromEntries(
+        STEPS.map((s, i) => {
+          const v = c.values[i].value
+          return [s, dark && c.name !== 'gray' && DARK_MUTED_STEPS.includes(s) ? muteChroma(v) : v]
+        }),
+      ) as Record<Step, string>,
+    ]),
   )
   return { background: bg.background, scales }
 }

@@ -8,8 +8,8 @@
 | **M1** ✅ | 기초 토큰 + DESIGN.md 초안 | 테마 2 × 모드 3을 Storybook에서 토글로 보고, 대비 자동 검사 통과 |
 | **M2** ✅ | 핵심 컴포넌트 5개 | 5개 × variant × tone 스토리 완성, 키보드·포커스 확인 |
 | **M3** ✅ | AI 레이어 | AI에게 카드 화면을 시켰을 때 하드코딩 값 0개 |
-| **M4** ▶ | 문서 정리 · 배포 | Storybook 배포, 문서만 보고 다른 프로젝트에 붙일 수 있다 |
-| M5 | 실전 적용 | 포트폴리오에 적용, 부족한 토큰·컴포넌트 보강 |
+| **M4** ✅ | 문서 정리 · 배포 | Storybook 배포, 문서만 보고 다른 프로젝트에 붙일 수 있다 |
+| **M5** ▶ | 실전 적용 | 포트폴리오에 적용, 부족한 토큰·컴포넌트 보강 |
 
 ## M0 — 스파이크
 > 2026-11-14 완료. seed 하나 바꾸면 `tokens.css`·`UCColor.swift` 값이 바뀌고, Tailwind는 `var(--uc-*)`를 가리켜서 따라 바뀐다. Swift는 iOS SDK로 타입 검사 통과.
@@ -54,10 +54,15 @@
 - [x] AI 테스트 — 화면 2개, 첫 초안 하드코딩 0 ([06-ai-layer](06-ai-layer.md#검증-결과-m3-2026-11-15))
 
 ## M4 — 문서 정리 · 배포
-- [ ] UX 문구 규칙 페이지
-- [ ] README 사용법 정비
-- [ ] Storybook 배포 (Vercel 또는 GitHub Pages)
-- [ ] 2차 컴포넌트: **Textarea · Alert(알림)부터** (AI 테스트에서 빠져서 짐작함), 그다음 Separator, Select, Sheet, Tooltip
+> 2026-11-15 완료. 새 Vite 프로젝트에 README 순서대로 붙여서 빌드·lint·테마 적용 확인. 배포는 push 후 Pages 설정 한 번 필요.
+
+- [x] UX 문구 규칙 페이지 (Storybook `가이드/문구`)
+- [x] README 사용법: 다른 프로젝트에 붙이기 (웹 · iOS), `npm run copy-to`
+- [x] Storybook 배포 설정 — GitHub Actions → Pages (`.github/workflows/storybook.yml`). 대비 검사·lint·생성 파일 최신 여부가 통과해야 배포
+- [ ] **저장소 Settings → Pages → Source를 GitHub Actions로** (사람이 한 번)
+- [x] 2차 컴포넌트: Textarea · Alert
+- [x] 다크 모드 weak 배경 채도 줄이기 (열린 질문 해결)
+- [ ] 나머지 2차(Separator, Select, Sheet, Tooltip)는 M5에서 필요할 때
 
 ## M5 — 실전 적용
 - [ ] 사진 포트폴리오에 적용 → 3차 컴포넌트(Figure, Gallery Grid, Lightbox, 내비게이션)

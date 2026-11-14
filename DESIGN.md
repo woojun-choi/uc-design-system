@@ -143,7 +143,7 @@ shadcn 컴포넌트를 그대로 붙여 넣어도 테마를 따르도록 `--back
 
 ## 4. Component Stylings
 
-컴포넌트는 `src/components/ui/`에 있다. **새로 만들기 전에 여기 있는지 먼저 본다.** 스타일은 props(`variant` · `tone` · `size`)로만 바꾸고, `className`으로 색을 덮어쓰지 않는다 (레이아웃용 `className`은 괜찮다: `w-full`, `mt-4` 등).
+컴포넌트는 `src/components/ui/`에 있다 (Button · Input · Textarea · Card · Badge · Alert · Dialog). **새로 만들기 전에 여기 있는지 먼저 본다.** 스타일은 props(`variant` · `tone` · `size`)로만 바꾸고, `className`으로 색을 덮어쓰지 않는다 (레이아웃용 `className`은 괜찮다: `w-full`, `mt-4` 등).
 
 공통 API (원칙 8):
 - `variant` = 강조 정도 · `tone` = 의미 (`neutral` `brand` `danger` `success` `warning` `info`) · `size` = `sm` `md` `lg`
@@ -197,6 +197,21 @@ shadcn 컴포넌트를 그대로 붙여 넣어도 테마를 따르도록 `--back
 - 폭 `max-w-xs`(448), `rounded-lg`, `shadow-3`, 뒤는 `bg-overlay`.
 - `DialogTitle`은 꼭 둔다. 버튼은 `DialogFooter`에 2개까지, 주요 버튼이 오른쪽.
 - **삭제 확인:** `tone="danger"` + `showClose={false}`, 제목은 "'○○'을 삭제할까요?", 설명에 "되돌릴 수 없어요", 버튼은 `취소하기`(weak · neutral) + `삭제하기`(solid · danger), 처음 포커스는 취소 (`취소하기` 버튼에 `autoFocus`).
+
+### 4.6 Textarea
+여러 줄 입력. props는 Input과 같다(`label` `hint` `error` `required`) + `rows`(기본 4). 내용만큼 높이가 늘어난다. 글자 수 제한은 `hint` + `maxLength`.
+
+### 4.7 Alert
+화면 안에 머무는 알림 — 처리 결과, 화면 전체 안내.
+
+| prop | 값 | 기본 |
+|---|---|---|
+| `tone` | `neutral` `info` `success` `warning` `danger` | `info` |
+| `title` | 굵은 첫 줄 ("저장했어요") | |
+| `children` | 설명 | |
+| `action` | 오른쪽 동작 하나 (`Button size="sm" variant="ghost"`) | |
+
+아이콘은 tone에 따라 자동. `danger`는 `role="alert"`, 나머지는 `role="status"`. 입력 칸 하나의 에러는 Alert가 아니라 Input `error`.
 
 ---
 
@@ -325,6 +340,8 @@ tone   neutral brand danger success warning info
 ```tsx
 import { Button } from '@/components/ui/button'      // variant solid|weak|outline|ghost · tone neutral|brand|danger · size sm|md|lg|icon · loading · asChild
 import { Input } from '@/components/ui/input'        // label hint error required
+import { Textarea } from '@/components/ui/textarea'  // Input과 같음 + rows
+import { Alert } from '@/components/ui/alert'        // tone neutral|info|success|warning|danger · title · action
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'  // variant outlined|elevated|flat
 import { Badge } from '@/components/ui/badge'        // variant weak|solid · tone neutral|brand|danger|success|warning|info
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog'  // DialogContent tone neutral|danger
@@ -359,7 +376,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 **"설정 화면"** → `max-w-sm`, 구획마다 `Card variant="flat"`, 라벨 있는 `Input`, 아래에 `저장하기`(solid) + `취소하기`(weak · neutral).
 
 ### 9.4 자주 쓰는 패턴
-컴포넌트가 아직 없는 것들. 아래 모양 그대로 쓴다.
+컴포넌트를 조합하는 자주 쓰는 모양. 그대로 쓴다.
 
 **빈 화면** — 무엇이 없는지 + 다음 행동 버튼 하나
 ```tsx
@@ -370,10 +387,10 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 </div>
 ```
 
-**처리 결과 알림** (저장됐어요, 실패했어요) — `role="status"`, tone의 weak 배경
+**처리 결과 알림** (저장했어요, 실패했어요) — Alert
 ```tsx
-<p role="status" className="rounded-md bg-success-weak p-3 text-callout text-success">저장했어요.</p>
-<p role="alert" className="rounded-md bg-danger-weak p-3 text-callout text-danger">저장하지 못했어요. 잠시 뒤 다시 시도해 주세요.</p>
+<Alert tone="success">저장했어요.</Alert>
+<Alert tone="danger" title="저장하지 못했어요">잠시 뒤 다시 시도해 주세요.</Alert>
 ```
 
 **위험 구역** (계정 삭제 등) — 화면 맨 아래 따로. 테두리 tone은 `className`으로 바꿔도 된다 (4장의 예외)
@@ -387,12 +404,6 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 </Card>
 ```
 
-**여러 줄 입력** — Textarea 컴포넌트 전까지
-```tsx
-import { inputClass } from '@/components/ui/input'
-import { cn } from '@/lib/utils'
-<textarea className={cn(inputClass, 'h-auto py-2')} rows={4} />  // 라벨은 Input과 같은 모양으로 직접
-```
 
 ### 9.5 끝내기 전에
 1. `npm run lint` — 에러 0
