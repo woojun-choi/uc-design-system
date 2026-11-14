@@ -1,0 +1,9 @@
+{
+  "$description": "모든 테마 공통 기본값. 테마 파일이 같은 키를 덮어쓴다. _로 시작하는 파일은 테마로 취급하지 않는다",
+  "seed": {
+    "red": { "$type": "color", "$value": ["#d6453d"] },
+    "green": { "$type": "color", "$value": ["#2f9e5a"] },
+    "yellow": { "$type": "color", "$value": ["#d99a00"] },
+    "blue": { "$type": "color", "$value": ["#2f7de1"] }
+  }
+}

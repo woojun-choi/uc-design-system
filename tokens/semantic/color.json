@@ -1,0 +1,201 @@
+{
+  "$description": "semantic 색 (원칙 2·5). color.* 팔레트는 빌드 때 seed에서 생성된다. 단계 = 배경 대비라서 다크도 대부분 같은 번호를 쓴다. 다른 건 tokens/modes/에서 덮어쓴다",
+  "bg": {
+    "$type": "color",
+    "layer": {
+      "1": {
+        "$value": "{color.background}",
+        "$description": "iOS systemBackground"
+      },
+      "2": {
+        "$value": "{color.gray.5}",
+        "$description": "iOS secondarySystemBackground"
+      },
+      "3": {
+        "$value": "{color.gray.10}",
+        "$description": "iOS tertiarySystemBackground"
+      }
+    },
+    "overlay": {
+      "$value": "#00000066",
+      "$description": "Dialog 뒤"
+    },
+    "brand": {
+      "solid": {
+        "$value": "{color.brand.50}"
+      },
+      "solid-hover": {
+        "$value": "{color.brand.60}"
+      },
+      "solid-pressed": {
+        "$value": "{color.brand.70}"
+      },
+      "weak": {
+        "$value": "{color.brand.10}"
+      },
+      "weak-hover": {
+        "$value": "{color.brand.20}"
+      },
+      "weak-pressed": {
+        "$value": "{color.brand.30}"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$value": "{color.red.50}"
+      },
+      "solid-hover": {
+        "$value": "{color.red.60}"
+      },
+      "solid-pressed": {
+        "$value": "{color.red.70}"
+      },
+      "weak": {
+        "$value": "{color.red.10}"
+      },
+      "weak-hover": {
+        "$value": "{color.red.20}"
+      },
+      "weak-pressed": {
+        "$value": "{color.red.30}"
+      }
+    },
+    "success": {
+      "solid": {
+        "$value": "{color.green.50}"
+      },
+      "solid-hover": {
+        "$value": "{color.green.60}"
+      },
+      "solid-pressed": {
+        "$value": "{color.green.70}"
+      },
+      "weak": {
+        "$value": "{color.green.10}"
+      },
+      "weak-hover": {
+        "$value": "{color.green.20}"
+      },
+      "weak-pressed": {
+        "$value": "{color.green.30}"
+      }
+    },
+    "warning": {
+      "solid": {
+        "$value": "{color.yellow.40}"
+      },
+      "solid-hover": {
+        "$value": "{color.yellow.30}"
+      },
+      "solid-pressed": {
+        "$value": "{color.yellow.45}"
+      },
+      "weak": {
+        "$value": "{color.yellow.10}"
+      },
+      "weak-hover": {
+        "$value": "{color.yellow.20}"
+      },
+      "weak-pressed": {
+        "$value": "{color.yellow.30}"
+      }
+    },
+    "info": {
+      "solid": {
+        "$value": "{color.blue.50}"
+      },
+      "solid-hover": {
+        "$value": "{color.blue.60}"
+      },
+      "solid-pressed": {
+        "$value": "{color.blue.70}"
+      },
+      "weak": {
+        "$value": "{color.blue.10}"
+      },
+      "weak-hover": {
+        "$value": "{color.blue.20}"
+      },
+      "weak-pressed": {
+        "$value": "{color.blue.30}"
+      }
+    }
+  },
+  "fg": {
+    "$type": "color",
+    "default": {
+      "$value": "{color.gray.90}"
+    },
+    "muted": {
+      "$value": "{color.gray.70}"
+    },
+    "subtle": {
+      "$value": "{color.gray.60}",
+      "$description": "50은 bg.layer.2·3 위에서 4.5 미달이라 60"
+    },
+    "disabled": {
+      "$value": "{color.gray.40}",
+      "$description": "대비 4.5 미만 — 비활성 표시 전용"
+    },
+    "brand": {
+      "$value": "{color.brand.60}"
+    },
+    "on-brand": {
+      "$value": "{color.white}",
+      "$description": "bg.brand.solid 위 글자"
+    },
+    "danger": {
+      "$value": "{color.red.60}"
+    },
+    "on-danger": {
+      "$value": "{color.white}",
+      "$description": "bg.danger.solid 위 글자"
+    },
+    "success": {
+      "$value": "{color.green.60}"
+    },
+    "on-success": {
+      "$value": "{color.white}",
+      "$description": "bg.success.solid 위 글자"
+    },
+    "warning": {
+      "$value": "{color.yellow.60}"
+    },
+    "on-warning": {
+      "$value": "{color.gray.95}",
+      "$description": "bg.warning.solid 위 글자"
+    },
+    "info": {
+      "$value": "{color.blue.60}"
+    },
+    "on-info": {
+      "$value": "{color.white}",
+      "$description": "bg.info.solid 위 글자"
+    }
+  },
+  "stroke": {
+    "$type": "color",
+    "default": {
+      "$value": "{color.gray.20}"
+    },
+    "strong": {
+      "$value": "{color.gray.45}",
+      "$description": "인풋 테두리 등 — 배경 대비 3 이상 (WCAG 1.4.11)"
+    },
+    "focus": {
+      "$value": "{color.brand.50}"
+    },
+    "danger": {
+      "$value": "{color.red.50}"
+    }
+  },
+  "stroke-width": {
+    "$type": "dimension",
+    "default": {
+      "$value": "1px"
+    },
+    "focus": {
+      "$value": "2px"
+    }
+  }
+}

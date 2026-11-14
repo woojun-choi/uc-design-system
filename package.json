@@ -1,0 +1,35 @@
+{
+  "name": "uc-design-system",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "tokens": "tsx scripts/build-tokens.ts && tsx scripts/check-contrast.ts",
+    "check:contrast": "tsx scripts/check-contrast.ts",
+    "dev": "npm run tokens && vite",
+    "storybook": "npm run tokens && storybook dev -p 6006",
+    "build-storybook": "npm run tokens && storybook build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@adobe/leonardo-contrast-colors": "^1.1.0",
+    "@storybook/react-vite": "^10.6.7",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/culori": "^4.0.1",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "culori": "^4.0.2",
+    "storybook": "^10.6.7",
+    "style-dictionary": "^5.8.0",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.8"
+  }
+}

@@ -4,28 +4,36 @@
 
 | 단계 | 이름 | 완료 기준 |
 |---|---|---|
-| **M0** ▶ | 스파이크 | seed 색 하나 바꾸면 CSS · Tailwind · Swift 출력이 다 바뀐다 |
-| M1 | 기초 토큰 + DESIGN.md 초안 | 테마 2 × 모드 3을 Storybook에서 토글로 보고, 대비 자동 검사 통과 |
-| M2 | 핵심 컴포넌트 5개 | 5개 × variant × tone 스토리 완성, 키보드·포커스 확인 |
+| **M0** ✅ | 스파이크 | seed 색 하나 바꾸면 CSS · Tailwind · Swift 출력이 다 바뀐다 |
+| **M1** ✅ | 기초 토큰 + DESIGN.md 초안 | 테마 2 × 모드 3을 Storybook에서 토글로 보고, 대비 자동 검사 통과 |
+| **M2** ▶ | 핵심 컴포넌트 5개 | 5개 × variant × tone 스토리 완성, 키보드·포커스 확인 |
 | M3 | AI 레이어 | AI에게 카드 화면을 시켰을 때 하드코딩 값 0개 |
 | M4 | 문서 정리 · 배포 | Storybook 배포, 문서만 보고 다른 프로젝트에 붙일 수 있다 |
 | M5 | 실전 적용 | 포트폴리오에 적용, 부족한 토큰·컴포넌트 보강 |
 
 ## M0 — 스파이크
-- [ ] 프로젝트 셋업: Vite + React 19 + TS + Tailwind v4 + Storybook
-- [ ] `tokens/` DTCG JSON 뼈대 (gray·brand 2계열만)
-- [ ] Leonardo로 seed 색 → 11단계 팔레트 (대비 목표값 [04-tokens](04-tokens.md#2-색-단계--흰-배경-대비-원칙-4))
-- [ ] Style Dictionary → `tokens.css`(OKLCH) · Tailwind `@theme` · `UCColor.swift`
-- [ ] seed 색 후보 몇 개로 neutral·paper 초안 만들어 보고 고르기
+> 2026-11-14 완료. seed 하나 바꾸면 `tokens.css`·`UCColor.swift` 값이 바뀌고, Tailwind는 `var(--uc-*)`를 가리켜서 따라 바뀐다. Swift는 iOS SDK로 타입 검사 통과.
+
+- [x] 프로젝트 셋업: Vite + React 19 + TS + Tailwind v4 + Storybook 10 (npm)
+- [x] `tokens/` DTCG JSON 뼈대 (gray·brand 2계열만)
+- [x] Leonardo로 seed 색 → 11단계 팔레트 (`src/lib/palette.ts`, 목표 대비 ±5% 안)
+- [x] Style Dictionary → `tokens.css`(OKLCH) · Tailwind `@theme` · `UCColor.swift` (`npm run tokens`)
+- [x] seed 후보 비교 스토리 (`기초/seed 후보`) → neutral `#3e63dd`, paper `#9c4a2f` 확정
+- [x] 덤: 테마 · 모드(light/dark) 툴바, `기초/팔레트` 스토리
 
 ## M1 — 기초 토큰
-- [ ] semantic 토큰 전체 (색·글자·간격·모서리·그림자·모션)
-- [ ] 라이트 / 다크 / 고대비 생성
-- [ ] globals.css에서 shadcn 변수 ↔ uc 토큰 연결
-- [ ] Storybook 툴바: 테마 · 모드 토글
-- [ ] Storybook "기초" 페이지: 팔레트 + 대비표, 글자 크기, 간격
-- [ ] 대비 자동 검사 스크립트 (`fg.*` × `bg.*` 짝)
-- [ ] DESIGN.md 1~3장 초안 (병행)
+> 2026-11-14 완료. 테마 2 × 모드 2 × 대비 2 = 8조합 모두 대비 검사 58쌍 통과.
+
+- [x] semantic 토큰 전체 (색·글자·간격·모서리·그림자·모션·컨테이너)
+- [x] 고대비 — 모드와 별도 축(`data-uc-contrast`)으로, 라이트·다크 둘 다
+- [x] 색 계열 red · green · yellow · blue + tone 5개(brand/danger/success/warning/info)
+- [x] 속성이 없으면 시스템 설정(다크·대비·모션 줄이기) 따르기
+- [x] `src/styles/shadcn.css`: shadcn 변수 ↔ uc 토큰 연결
+- [x] Storybook 툴바: 테마 · 모드(시스템/라이트/다크) · 대비(시스템/기본/고대비)
+- [x] Storybook 기초 페이지: 색(팔레트·tone·대비표), 글자, 간격과 모양
+- [x] 대비 자동 검사 `npm run check:contrast` (`npm run tokens`에 포함, 미달이면 실패)
+- [x] Swift: 다크·고대비 4가지 자동 전환
+- [x] DESIGN.md 1~3장 초안
 
 ## M2 — 핵심 컴포넌트
 - [ ] Button · Input · Card · Badge · Dialog ([05-components](05-components.md))

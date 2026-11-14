@@ -1,0 +1,5 @@
+@import '../src/styles/globals.css';
+
+/* 스토리에서 이름을 조립해 쓰는 클래스 (Tailwind가 소스에서 못 찾음) */
+@source inline("text-{large-title,title1,title2,title3,headline,body,callout,subheadline,footnote,caption1,caption2}");
+@source inline("rounded-{sm,md,lg,full} shadow-{1,2,3}");

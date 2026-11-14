@@ -1,0 +1,222 @@
+{
+  "$description": "글자 크기 = iOS Dynamic Type 이름·기본값 (원칙 6). 제목 4개만 heading 글꼴",
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": {
+        "$value": [
+          "Pretendard Variable",
+          "Pretendard",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "heading": {
+        "$value": "{font.family.sans}",
+        "$description": "테마가 덮어쓴다 (paper = 마루 부리)"
+      }
+    }
+  },
+  "text": {
+    "largeTitle": {
+      "size": {
+        "$type": "dimension",
+        "$value": "34px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "41px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.heading}"
+      }
+    },
+    "title1": {
+      "size": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "34px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.heading}"
+      }
+    },
+    "title2": {
+      "size": {
+        "$type": "dimension",
+        "$value": "22px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "28px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.heading}"
+      }
+    },
+    "title3": {
+      "size": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "25px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.heading}"
+      }
+    },
+    "headline": {
+      "size": {
+        "$type": "dimension",
+        "$value": "17px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "22px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.semibold}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.sans}"
+      }
+    },
+    "body": {
+      "size": {
+        "$type": "dimension",
+        "$value": "17px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "22px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.sans}"
+      }
+    },
+    "callout": {
+      "size": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "21px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.sans}"
+      }
+    },
+    "subheadline": {
+      "size": {
+        "$type": "dimension",
+        "$value": "15px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.sans}"
+      }
+    },
+    "footnote": {
+      "size": {
+        "$type": "dimension",
+        "$value": "13px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "18px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.sans}"
+      }
+    },
+    "caption1": {
+      "size": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.sans}"
+      }
+    },
+    "caption2": {
+      "size": {
+        "$type": "dimension",
+        "$value": "11px"
+      },
+      "line-height": {
+        "$type": "dimension",
+        "$value": "13px"
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "$value": "{font.weight.regular}"
+      },
+      "family": {
+        "$type": "fontFamily",
+        "$value": "{font.family.sans}"
+      }
+    }
+  }
+}

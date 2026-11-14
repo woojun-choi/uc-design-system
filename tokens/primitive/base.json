@@ -1,0 +1,33 @@
+{
+  "color": {
+    "$type": "color",
+    "white": { "$value": "#ffffff" },
+    "black": { "$value": "#000000" }
+  },
+  "font": {
+    "weight": {
+      "$type": "fontWeight",
+      "$description": "굵기는 3개만 (원칙 6)",
+      "regular": { "$value": 400 },
+      "semibold": { "$value": 600 },
+      "bold": { "$value": 700 }
+    }
+  },
+  "duration": {
+    "$type": "duration",
+    "$description": "prefers-reduced-motion이면 0",
+    "fast": { "$value": "120ms" },
+    "normal": { "$value": "200ms" },
+    "slow": { "$value": "320ms" }
+  },
+  "easing": {
+    "$type": "cubicBezier",
+    "standard": { "$value": [0.2, 0, 0, 1] }
+  },
+  "container": {
+    "$type": "dimension",
+    "sm": { "$value": "640px" },
+    "md": { "$value": "768px" },
+    "lg": { "$value": "1024px" }
+  }
+}

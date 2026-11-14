@@ -1,0 +1,32 @@
+{
+  "$description": "neutral — 무채색 + 절제된 포인트 1색. 사진이 주인공일 때 (docs/04-tokens.md §7)",
+  "seed": {
+    "$description": "팔레트 생성 입력. 출력 토큰에는 안 나간다. gray 첫 key 근처가 배경이 된다",
+    "gray": { "$type": "color", "$value": ["#737373"] },
+    "brand": { "$type": "color", "$value": ["#3e63dd"] },
+    "lightness": { "$type": "number", "$value": { "light": 100, "dark": 8 } }
+  },
+  "radius": {
+    "$type": "dimension",
+    "sm": { "$value": "6px" },
+    "md": { "$value": "10px" },
+    "lg": { "$value": "16px" },
+    "full": { "$value": "9999px" }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "$description": "흐린 그림자",
+    "1": { "$value": "0 1px 2px rgb(0 0 0 / 0.06), 0 1px 1px rgb(0 0 0 / 0.04)" },
+    "2": { "$value": "0 4px 12px rgb(0 0 0 / 0.08), 0 1px 3px rgb(0 0 0 / 0.06)" },
+    "3": { "$value": "0 12px 32px rgb(0 0 0 / 0.12), 0 2px 6px rgb(0 0 0 / 0.06)" }
+  },
+  "modes": {
+    "dark": {
+      "shadow": {
+        "1": { "$value": "0 1px 2px rgb(0 0 0 / 0.4)" },
+        "2": { "$value": "0 4px 12px rgb(0 0 0 / 0.5)" },
+        "3": { "$value": "0 12px 32px rgb(0 0 0 / 0.6)" }
+      }
+    }
+  }
+}

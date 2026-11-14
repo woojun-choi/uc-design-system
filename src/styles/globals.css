@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+@import './tokens.css';
+@import './tokens.theme.css';
+@import './shadcn.css';
+
+/* 글꼴은 쓰는 쪽에서 불러온다: Pretendard, (paper) 마루 부리 — DESIGN.md 3장 */
+
+@layer base {
+  html {
+    background: var(--uc-bg-layer-1);
+    color: var(--uc-fg-default);
+    font-family: var(--uc-font-family-sans);
+    font-size: var(--uc-text-body-size);
+    line-height: var(--uc-text-body-line-height);
+    -webkit-font-smoothing: antialiased;
+  }
+  * {
+    border-color: var(--uc-stroke-default);
+  }
+  :focus-visible {
+    outline: var(--uc-stroke-width-focus) solid var(--uc-stroke-focus);
+    outline-offset: 2px;
+  }
+}

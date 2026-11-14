@@ -1,0 +1,29 @@
+{
+  "$description": "고대비 덮어쓰기 (팔레트는 contrast 1.4배로 따로 생성). 테두리 굵게. 경고 solid는 1.4배로 어두워져 검은 글자가 안 맞아서 한 단계씩 밝게",
+  "stroke": {
+    "default": {
+      "$value": "{color.gray.40}"
+    }
+  },
+  "stroke-width": {
+    "default": {
+      "$value": "2px"
+    },
+    "focus": {
+      "$value": "3px"
+    }
+  },
+  "bg": {
+    "warning": {
+      "solid": {
+        "$value": "{color.yellow.30}"
+      },
+      "solid-hover": {
+        "$value": "{color.yellow.20}"
+      },
+      "solid-pressed": {
+        "$value": "{color.yellow.40}"
+      }
+    }
+  }
+}

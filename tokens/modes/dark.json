@@ -1,0 +1,68 @@
+{
+  "$description": "다크 모드 덮어쓰기. solid 배경 위 흰 글자(4.5↑)와 배경 대비(3↑)를 둘 다 맞추는 단계가 45뿐이라 solid = 45, hover·pressed = 40",
+  "bg": {
+    "brand": {
+      "solid": {
+        "$value": "{color.brand.45}"
+      },
+      "solid-hover": {
+        "$value": "{color.brand.40}"
+      },
+      "solid-pressed": {
+        "$value": "{color.brand.40}"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$value": "{color.red.45}"
+      },
+      "solid-hover": {
+        "$value": "{color.red.40}"
+      },
+      "solid-pressed": {
+        "$value": "{color.red.40}"
+      }
+    },
+    "success": {
+      "solid": {
+        "$value": "{color.green.45}"
+      },
+      "solid-hover": {
+        "$value": "{color.green.40}"
+      },
+      "solid-pressed": {
+        "$value": "{color.green.40}"
+      }
+    },
+    "warning": {
+      "solid": {
+        "$value": "{color.yellow.70}"
+      },
+      "solid-hover": {
+        "$value": "{color.yellow.60}"
+      },
+      "solid-pressed": {
+        "$value": "{color.yellow.80}"
+      }
+    },
+    "info": {
+      "solid": {
+        "$value": "{color.blue.45}"
+      },
+      "solid-hover": {
+        "$value": "{color.blue.40}"
+      },
+      "solid-pressed": {
+        "$value": "{color.blue.40}"
+      }
+    },
+    "overlay": {
+      "$value": "#000000a6"
+    }
+  },
+  "fg": {
+    "on-warning": {
+      "$value": "{color.background}"
+    }
+  }
+}

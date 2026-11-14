@@ -21,3 +21,24 @@
 | 2026-11-14 | 첫 적용 = **Storybook에서 먼저 완성 → 포트폴리오** | 두 계획을 순서로 합침 |
 | 2026-11-14 | 문서는 Storybook 먼저, Next.js 문서 사이트는 workspace 전환 때 | 단일 패키지로 시작하기로 해서 |
 | 2026-11-14 | idea_bank의 05 구체화 문서·읽기 노트를 이 저장소로 옮김, plan.md는 docs/로 나눠 합침 | 디자인 시스템 자료를 한곳에 |
+| 2026-11-14 | 패키지 매니저 = **npm** | pnpm이 설치돼 있지 않고, 단일 패키지라 차이 없음. workspace 전환 때 다시 판단 |
+| 2026-11-14 | 테마 · 모드 전환 = `<html data-uc-theme data-uc-mode>` 속성 | 테마 × 모드를 독립적으로 바꿀 수 있음. 기본(neutral·light)은 `:root`에도 |
+| 2026-11-14 | Tailwind 클래스 = 용도별 이름공간: `bg-layer-1` `text-default` `border-default` `outline-focus` | `--color-*`에 넣으면 `bg-fg-default` 같은 잘못된 조합이 생김. 기본 팔레트(`bg-blue-500` 등)는 지워서 하드코딩을 막음 (원칙 1) |
+| 2026-11-14 | `fg.on-brand` = 배경색(`color.background`) | brand.50이 배경 대비 4.5라서 짝이 자동으로 맞음. 다크에선 어두운 글자가 됨 — 열린 질문 |
+| 2026-11-14 | Leonardo 보간 = OKLCH, paper는 gray key 3개(미색·중간·먹)로 배경을 정확히 미색에 맞춤 | key 1개면 배경이 거의 흰 회색이 됨 |
+| 2026-11-14 | Swift 출력 = 테마마다 `UCColors.neutral/.paper`, 색은 UIColor 동적 색으로 라이트/다크 자동 | 앱에서 테마를 골라 쓰기 쉬움. iOS 전용(UIKit) |
+| 2026-11-14 | 생성 파일(`tokens.css`, `tokens.theme.css`, `UCColor.swift`)도 커밋한다 | 다른 프로젝트가 빌드 없이 복사해 갈 수 있게 (원칙 9) |
+| 2026-11-14 | seed 확정: neutral brand = `#3e63dd`(선명한 파랑), paper brand = `#9c4a2f`(붉은 갈색). gray는 neutral `#737373`, paper `#f4ecda`·`#8a7d66`·`#2e2a24` | Storybook `기초/seed 후보`에서 후보 4개씩 비교. 대비는 Leonardo가 맞추므로 색조·채도로 고름 |
+| 2026-11-14 | `fg.on-brand` = 모드 상관없이 흰 글자. 다크에선 `bg.brand.solid`를 새 단계 **45(대비 3.5)**로 | 다크에서 흰 글자 4.5 이상 + 버튼 경계 3 이상을 둘 다 맞추는 구간이 대비 3~4 사이뿐. iOS 다크 버튼과 같은 느낌 |
+| 2026-11-14 | 상태 색 seed = red `#d6453d` · green `#2f9e5a` · yellow `#d99a00` · blue `#2f7de1`, 두 테마 공통 | 같은 의미는 같은 색이 덜 헷갈림. 필요하면 테마 파일에서 덮어쓰기 |
+| 2026-11-14 | 고대비 모드 = Leonardo `contrast` 배율 1.4 + 테두리 1px→2px | 단계 번호·semantic 매핑을 그대로 두고 값만 진해짐. 따로 관리할 표가 없음 |
+| 2026-11-14 | 모드 기본값 = 시스템 설정(`prefers-color-scheme`, `prefers-contrast: more`)을 따르고, `data-uc-mode`가 있으면 그걸 우선 | 사용자 설정 존중. 강제로 바꾸고 싶을 때만 속성 |
+| 2026-11-14 | paper 제목 글꼴 = 마루 부리 (본문은 두 테마 모두 Pretendard) | 무료(OFL)·웹폰트 있음·굵기 여러 개. 본명조보다 화면에서 덜 딱딱함 |
+| 2026-11-14 | 그림자: neutral = 흐린 그림자 3단계, paper = 흐림 0인 엇갈린 그림자(종이 겹침). 모션: 120 / 200 / 320ms, `cubic-bezier(0.2, 0, 0, 1)` | 테마 무드 차이를 그림자로 크게 냄. 모션은 iOS 기본 속도 근처 |
+| 2026-11-14 | Storybook 배포 = GitHub Pages, 레지스트리 이름 = `@uc` | 저장소와 같은 곳, 추가 계정 없음 |
+| 2026-11-14 | 고대비는 모드 값이 아니라 **별도 축** `data-uc-contrast`. 테마 2 × 모드 2 × 대비 2 = 8조합 | 다크 + 고대비도 필요해서 (iOS도 둘이 따로). 앞서 정한 `data-uc-mode="high-contrast"`를 바꿈 |
+| 2026-11-14 | 다크 solid hover·pressed = 40 (앞서 정한 '밝게 50·60' 취소) | 대비 검사에서 50 위 흰 글자가 3.97로 미달 |
+| 2026-11-14 | `fg.subtle` 50 → 60, `stroke.strong` 40 → 45 | 대비 검사: subtle이 layer.2·3 위 미달, 인풋 테두리 3 미달 |
+| 2026-11-14 | Tailwind 기본 글자 크기·그림자·글꼴·ease·container도 지움. 글자는 `text-body` 등 iOS 이름만 | 하드코딩 차단 (원칙 1·6) |
+| 2026-11-14 | 대비 검사는 `npm run tokens`에 묶어서 미달이면 빌드 실패 | 토큰을 고칠 때마다 자동으로 확인 |
+| 2026-11-14 | shadcn 연결은 `src/styles/shadcn.css`로 분리. 새 코드는 uc 이름만 | 붙여 넣은 shadcn 컴포넌트도 테마를 따르게 하되 이름은 하나로 |

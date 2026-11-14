@@ -2,11 +2,20 @@
 
 uzun choi의 개인 디자인 시스템. **여러 프로젝트에 나만의 디자인 시스템을 적용하기 위해** 만든다. shadcn/ui 기반 토큰 중심 시스템으로, 웹과 iOS 사이드 프로젝트가 같이 쓰고 AI도 따른다.
 
-> **상태:** 설계 완료, 코드 시작 전. 다음 단계는 **M0 스파이크** (토큰 파이프라인 확인) — [로드맵](docs/roadmap.md)
+> **상태:** M1 기초 토큰 완료 (테마 2 × 모드 2 × 대비 2, 대비 검사 통과). 다음은 **M2 핵심 컴포넌트** — [로드맵](docs/roadmap.md)
+
+## 실행
+```bash
+npm install
+npm run tokens      # tokens/ → CSS · Tailwind · Swift 생성 + 대비 검사
+npm run storybook   # http://localhost:6006 — 툴바에서 테마 · 모드 전환
+```
+토큰은 `tokens/`만 고친다. 생성 파일은 직접 고치지 않는다.
 
 ## 문서 지도
 | 문서 | 내용 |
 |---|---|
+| [DESIGN.md](DESIGN.md) | **디자인 규칙 원본** — 토큰 이름·쓰는 법 (AI도 읽음) |
 | [01. 개요](docs/01-overview.md) | 왜 만드나, 흐름, 쓰는 곳, 성공 기준 |
 | [02. 원칙](docs/02-principles.md) | 원칙 12개 + 운영 원칙 4개 |
 | [03. 구조 · 기술 스택](docs/03-architecture.md) | 스택, 폴더 구조, 토큰 빌드 흐름 |
@@ -20,7 +29,7 @@ uzun choi의 개인 디자인 시스템. **여러 프로젝트에 나만의 디�
 
 ## 한눈에
 - **토큰:** DTCG JSON 한 소스 → CSS 변수(`--uc-*`, OKLCH) · Tailwind v4 · Swift
-- **테마:** neutral(무채색, 사진이 주인공) · paper(미색 종이) × 라이트 / 다크 / 고대비
+- **테마:** neutral(무채색, 사진이 주인공) · paper(미색 종이) × 라이트 / 다크 × 기본 / 고대비 — 속성이 없으면 시스템 설정
 - **컴포넌트:** shadcn/ui 위에 Button · Input · Card · Badge · Dialog부터
 - **AI:** DESIGN.md(원본) + AGENTS.md · 스킬(안내) + lint(강제)
 - **쓰는 곳:** Storybook에서 먼저 완성 → 사진 포트폴리오 → 다른 사이드 프로젝트

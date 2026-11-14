@@ -23,17 +23,22 @@ uc-design-system/
 ├── llms.txt               # AI용 문서 목차 (M3)
 ├── tokens/                # ★ 토큰 원본 — 여기만 직접 고친다
 │   ├── primitive/         #   색 단계·숫자
-│   ├── semantic/          #   fg/bg/stroke, 글자, 간격
-│   └── themes/            #   neutral.json, paper.json (seed 색 + 덮어쓰기)
+│   ├── semantic/          #   fg/bg/stroke, 글자
+│   ├── modes/             #   dark · contrast-more 덮어쓰기
+│   └── themes/            #   _base.json(공통 seed) + neutral.json, paper.json
 ├── scripts/
-│   └── build-tokens.ts    # Leonardo 팔레트 + Style Dictionary 빌드
+│   ├── build-tokens.ts    # Leonardo 팔레트 + Style Dictionary 빌드
+│   └── check-contrast.ts  # 8조합 대비 검사
 ├── src/
 │   ├── styles/
-│   │   ├── tokens.css     #   자동 생성 — 직접 고치지 않음
-│   │   └── globals.css    #   Tailwind @theme + shadcn 변수 ↔ uc 토큰 연결
+│   │   ├── tokens.css         #   자동 생성 — 직접 고치지 않음
+│   │   ├── tokens.theme.css   #   자동 생성 — Tailwind @theme
+│   │   ├── shadcn.css         #   shadcn 변수 ↔ uc 토큰 연결
+│   │   └── globals.css        #   위 셋을 묶는 입구
 │   ├── components/ui/     #   shadcn 기반 컴포넌트
 │   └── lib/utils.ts       #   cn() 등
 ├── stories/               # Storybook 스토리 (컴포넌트 문서 겸용)
+├── dist/tokens.json       # 자동 생성 — 조합별 최종 값
 ├── dist/swift/            # 자동 생성 — iOS 앱에 복사해 감
 ├── docs/                  # 설계 문서 (이 폴더)
 └── research/              # 읽기 노트·조사

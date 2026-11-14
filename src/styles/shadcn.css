@@ -1,0 +1,50 @@
+/*
+ * shadcn/ui 변수 ↔ uc 토큰 연결 (docs/03-architecture.md)
+ * shadcn 컴포넌트를 그대로 붙여 넣어도 uc 테마·모드를 따르게 한다.
+ * 우리 컴포넌트는 이 이름(bg-primary 등)이 아니라 uc 이름(bg-brand-solid 등)을 쓴다.
+ */
+:root {
+  --background: var(--uc-bg-layer-1);
+  --foreground: var(--uc-fg-default);
+  --card: var(--uc-bg-layer-1);
+  --card-foreground: var(--uc-fg-default);
+  --popover: var(--uc-bg-layer-1);
+  --popover-foreground: var(--uc-fg-default);
+  --primary: var(--uc-bg-brand-solid);
+  --primary-foreground: var(--uc-fg-on-brand);
+  --secondary: var(--uc-bg-layer-3);
+  --secondary-foreground: var(--uc-fg-default);
+  --muted: var(--uc-bg-layer-2);
+  --muted-foreground: var(--uc-fg-muted);
+  --accent: var(--uc-bg-layer-3);
+  --accent-foreground: var(--uc-fg-default);
+  --destructive: var(--uc-bg-danger-solid);
+  --destructive-foreground: var(--uc-fg-on-danger);
+  --border: var(--uc-stroke-default);
+  --input: var(--uc-stroke-strong);
+  --ring: var(--uc-stroke-focus);
+  --radius: var(--uc-radius-md);
+}
+
+/* shadcn 클래스(bg-background, text-primary-foreground …)용. radius는 uc 값을 그대로 쓴다 */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}

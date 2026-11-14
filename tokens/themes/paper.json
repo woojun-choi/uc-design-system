@@ -1,0 +1,37 @@
+{
+  "$description": "paper — 미색 종이, 잡지·콜라주 (docs/04-tokens.md §7)",
+  "seed": {
+    "$description": "팔레트 생성 입력. 출력 토큰에는 안 나간다. 첫 key(미색)가 light 배경에 정확히 오도록 lightness 94",
+    "gray": { "$type": "color", "$value": ["#f4ecda", "#8a7d66", "#2e2a24"] },
+    "brand": { "$type": "color", "$value": ["#9c4a2f"] },
+    "lightness": { "$type": "number", "$value": { "light": 94, "dark": 10 } }
+  },
+  "radius": {
+    "$type": "dimension",
+    "sm": { "$value": "0px" },
+    "md": { "$value": "2px" },
+    "lg": { "$value": "4px" },
+    "full": { "$value": "9999px" }
+  },
+  "font": {
+    "family": {
+      "heading": { "$type": "fontFamily", "$value": ["MaruBuri", "Noto Serif KR", "serif"] }
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "$description": "흐림 없는 엇갈린 그림자 — 종이를 겹친 느낌. 먹색(#2e2a24)",
+    "1": { "$value": "1px 1px 0 rgb(46 42 36 / 0.15)" },
+    "2": { "$value": "2px 3px 0 rgb(46 42 36 / 0.2)" },
+    "3": { "$value": "4px 6px 0 rgb(46 42 36 / 0.25)" }
+  },
+  "modes": {
+    "dark": {
+      "shadow": {
+        "1": { "$value": "1px 1px 0 rgb(0 0 0 / 0.5)" },
+        "2": { "$value": "2px 3px 0 rgb(0 0 0 / 0.6)" },
+        "3": { "$value": "4px 6px 0 rgb(0 0 0 / 0.7)" }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$description": "다크 + 고대비. 단계가 1.4배로 밝아져서 45도 흰 글자가 안 맞음 → 40. 경고는 contrast-more.json의 라이트용 값을 다크 값으로 되돌림",
+  "bg": {
+    "brand": {
+      "solid": {
+        "$value": "{color.brand.40}"
+      },
+      "solid-hover": {
+        "$value": "{color.brand.30}"
+      },
+      "solid-pressed": {
+        "$value": "{color.brand.30}"
+      }
+    },
+    "danger": {
+      "solid": {
+        "$value": "{color.red.40}"
+      },
+      "solid-hover": {
+        "$value": "{color.red.30}"
+      },
+      "solid-pressed": {
+        "$value": "{color.red.30}"
+      }
+    },
+    "success": {
+      "solid": {
+        "$value": "{color.green.40}"
+      },
+      "solid-hover": {
+        "$value": "{color.green.30}"
+      },
+      "solid-pressed": {
+        "$value": "{color.green.30}"
+      }
+    },
+    "info": {
+      "solid": {
+        "$value": "{color.blue.40}"
+      },
+      "solid-hover": {
+        "$value": "{color.blue.30}"
+      },
+      "solid-pressed": {
+        "$value": "{color.blue.30}"
+      }
+    },
+    "warning": {
+      "solid": {
+        "$value": "{color.yellow.70}"
+      },
+      "solid-hover": {
+        "$value": "{color.yellow.60}"
+      },
+      "solid-pressed": {
+        "$value": "{color.yellow.80}"
+      }
+    }
+  }
+}
