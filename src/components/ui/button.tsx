@@ -13,17 +13,17 @@ const buttonVariants = cva(
     'inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md font-semibold',
     'transition-colors select-none',
     'disabled:pointer-events-none disabled:opacity-40 aria-busy:pointer-events-none',
-    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-[1.15em]",
+    '[&_svg]:pointer-events-none [&_svg]:shrink-0',
   ],
   {
     variants: {
       variant: { solid: '', weak: '', outline: 'border bg-transparent', ghost: 'bg-transparent' },
       tone: { neutral: '', brand: '', danger: '' },
       size: {
-        sm: 'h-8 px-3 text-footnote',
-        md: 'h-10 px-4 text-callout',
-        lg: 'h-12 px-5 text-headline',
-        icon: 'size-10',
+        sm: "h-8 px-3 text-footnote [&_svg:not([class*='size-'])]:size-4",
+        md: "h-10 px-4 text-callout [&_svg:not([class*='size-'])]:size-4",
+        lg: "h-12 px-5 text-headline [&_svg:not([class*='size-'])]:size-5",
+        icon: "size-10 [&_svg:not([class*='size-'])]:size-5",
       },
     },
     // Tailwind가 찾을 수 있게 클래스 이름을 조립하지 않고 다 적는다

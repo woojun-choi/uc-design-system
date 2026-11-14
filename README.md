@@ -2,13 +2,14 @@
 
 uzun choi의 개인 디자인 시스템. **여러 프로젝트에 나만의 디자인 시스템을 적용하기 위해** 만든다. shadcn/ui 기반 토큰 중심 시스템으로, 웹과 iOS 사이드 프로젝트가 같이 쓰고 AI도 따른다.
 
-> **상태:** M2 핵심 컴포넌트 완료 (Button · Input · Card · Badge · Dialog). 다음은 **M3 AI 레이어** — [로드맵](docs/roadmap.md)
+> **상태:** M3 AI 레이어 완료 (DESIGN.md · AGENTS.md · 스킬 · lint). 다음은 **M4 문서 정리 · 배포** — [로드맵](docs/roadmap.md)
 
 ## 실행
 ```bash
 npm install
 npm run tokens      # tokens/ → CSS · Tailwind · Swift 생성 + 대비 검사
-npm run storybook   # http://localhost:6006 — 툴바에서 테마 · 모드 전환
+npm run storybook   # http://localhost:6006 — 툴바에서 테마 · 모드 · 대비 전환
+npm run lint        # 하드코딩(hex, 임의 값, 토큰에 없는 클래스) 검사
 ```
 토큰은 `tokens/`만 고친다. 생성 파일은 직접 고치지 않는다.
 
@@ -16,6 +17,7 @@ npm run storybook   # http://localhost:6006 — 툴바에서 테마 · 모드 �
 | 문서 | 내용 |
 |---|---|
 | [DESIGN.md](DESIGN.md) | **디자인 규칙 원본** — 토큰 이름·쓰는 법 (AI도 읽음) |
+| [AGENTS.md](AGENTS.md) | AI 핵심 규칙 10줄 + 어디를 읽을지 · [llms.txt](llms.txt) |
 | [01. 개요](docs/01-overview.md) | 왜 만드나, 흐름, 쓰는 곳, 성공 기준 |
 | [02. 원칙](docs/02-principles.md) | 원칙 12개 + 운영 원칙 4개 |
 | [03. 구조 · 기술 스택](docs/03-architecture.md) | 스택, 폴더 구조, 토큰 빌드 흐름 |

@@ -16,7 +16,6 @@ export function useCssVars(names: string[], globals: Record<string, unknown>) {
       cancelAnimationFrame(id)
       mq.forEach((m) => m.removeEventListener('change', read))
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key])
   return values
 }

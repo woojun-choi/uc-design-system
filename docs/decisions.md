@@ -49,3 +49,7 @@
 | 2026-11-14 | `cn()`에 uc 토큰 이름을 알려 준 tailwind-merge | 기본 설정이면 `text-headline`(크기)과 `text-on-brand`(색)를 같은 그룹으로 보고 하나를 지움 |
 | 2026-11-14 | 아이콘 = lucide-react, Radix = `radix-ui` 통합 패키지 | shadcn 기본과 같음 |
 | 2026-11-14 | Storybook 문서 = MDX(remark-gfm) + 접근성 애드온, 문서 미리보기 칸은 테마 바탕색 | 원칙 11 문서 1장. 표를 쓰려고 GFM |
+| 2026-11-15 | lint = ESLint + eslint-plugin-better-tailwindcss(globals.css를 읽어 토큰에 없는 클래스를 에러로) + no-restricted-syntax(hex·style 숫자) | Tailwind 기본값을 지워 둔 덕에 '모르는 클래스' 하나로 대부분 잡힘. 직접 만든 스크립트보다 JSX를 정확히 읽음 |
+| 2026-11-15 | 임의 값은 색·간격·크기 유틸리티만 막고, `var(--uc-*)`와 grid 템플릿·variant(`[&_svg]:`)는 허용 | 레이아웃 표현까지 막으면 우회 코드가 생김 |
+| 2026-11-15 | Button 아이콘 크기를 size마다 토큰 크기로 (임의 값 `1.15em` 제거) | lint 규칙을 컴포넌트에도 똑같이 |
+| 2026-11-15 | Claude Code 스킬 이름 = `uc-ui`, 저장소 안 `.claude/skills/`. 다른 프로젝트엔 AGENTS.md·DESIGN.md·스킬·eslint 설정을 같이 복사 | 코드 복사형 배포(원칙 9)와 같은 방식 |

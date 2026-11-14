@@ -1,7 +1,8 @@
 # DESIGN.md — uc-design-system
 
 > 사람과 AI가 같이 읽는 디자인 규칙 원본. 토큰이 바뀌면 이 문서도 같은 커밋에서 고친다.
-> 1~4장 초안 (M1·M2). 5~9장은 M3에서 채운다. 값의 원본은 `tokens/`, 최종 값은 `dist/tokens.json`.
+> 값의 원본은 `tokens/`, 최종 값은 `dist/tokens.json`. 규칙은 `npm run lint`가 강제한다.
+> AI는 [AGENTS.md](AGENTS.md)를 먼저 읽고, 필요한 장만 여기서 찾아 읽는다.
 
 **가장 중요한 규칙:** 색·간격·모서리·글자 크기는 **토큰 이름으로만** 쓴다. hex, `px` 직접 입력, Tailwind 기본 색(`bg-blue-500`)·크기(`text-sm`)는 쓰지 않는다 — 기본값은 빌드에서 지워져 있어서 써도 동작하지 않는다.
 
@@ -195,11 +196,205 @@ shadcn 컴포넌트를 그대로 붙여 넣어도 테마를 따르도록 `--back
 
 - 폭 `max-w-xs`(448), `rounded-lg`, `shadow-3`, 뒤는 `bg-overlay`.
 - `DialogTitle`은 꼭 둔다. 버튼은 `DialogFooter`에 2개까지, 주요 버튼이 오른쪽.
-- **삭제 확인:** `tone="danger"` + `showClose={false}`, 제목은 "'○○'을 삭제할까요?", 설명에 "되돌릴 수 없어요", 버튼은 `취소하기`(weak · neutral) + `삭제하기`(solid · danger), 처음 포커스는 취소.
+- **삭제 확인:** `tone="danger"` + `showClose={false}`, 제목은 "'○○'을 삭제할까요?", 설명에 "되돌릴 수 없어요", 버튼은 `취소하기`(weak · neutral) + `삭제하기`(solid · danger), 처음 포커스는 취소 (`취소하기` 버튼에 `autoFocus`).
 
 ---
 
-## 5~9장 (예정)
-5 Layout & Spacing · 6 Depth & Motion · 7 Writing · 8 Do's and Don'ts · 9 Agent Prompt Guide (M3)
+## 5. Layout & Spacing
 
-미리 알아 둘 값: 간격 `p-N` = N × 4px · 모서리 `rounded-sm/md/lg/full` · 그림자 `shadow-1/2/3` · 컨테이너 `max-w-xs/sm/md/lg` (448/640/768/1024) · 전환 `ease-standard`, 기본 200ms.
+### 5.1 간격
+4px 단위. Tailwind 숫자 = N × 4px (`p-4` = 16px). **쓰는 값은 아래만:**
+
+| 토큰 | 값 | 주로 |
+|---|---|---|
+| `space.1` · `2` | 4 · 8 | 아이콘과 글자 사이, 배지 안 |
+| `space.3` · `4` | 12 · 16 | 버튼 안, 인풋 안, 목록 항목 사이 |
+| `space.5` · `6` | 20 · 24 | 카드 안쪽, Dialog 안쪽 |
+| `space.8` · `10` · `12` | 32 · 40 · 48 | 구획 사이 |
+| `space.16` | 64 | 화면 위아래 큰 여백 |
+
+- 관계가 가까울수록 좁게: 라벨↔인풋 `gap-1.5`, 항목 사이 `gap-4`, 구획 사이 `gap-10` 이상.
+- 화면 좌우 여백: 모바일 `px-4`, 넓은 화면 `px-6` 이상.
+- 임의 값(`p-[13px]`)은 lint 에러.
+
+### 5.2 컨테이너
+| 클래스 | 폭 | 쓰임 |
+|---|---|---|
+| `max-w-xs` | 448 | Dialog, 좁은 양식 |
+| `max-w-sm` | 640 | 글 본문, 설정 화면 |
+| `max-w-md` | 768 | 일반 화면 |
+| `max-w-lg` | 1024 | 갤러리, 넓은 목록 |
+
+가운데 정렬은 `mx-auto w-full max-w-md px-4`.
+
+### 5.3 배경 층
+화면 바탕 `bg-layer-1` → 구획·카드 `bg-layer-2` → 그 안 구획 `bg-layer-3`. 세 단계를 넘기지 않는다.
+
+### 5.4 모서리
+| 클래스 | neutral | paper | 쓰임 |
+|---|---|---|---|
+| `rounded-sm` | 6 | 0 | 작은 요소, 체크박스 |
+| `rounded-md` | 10 | 2 | 버튼, 인풋 |
+| `rounded-lg` | 16 | 4 | 카드, Dialog |
+| `rounded-full` | 원 | 원 | 배지, 아바타 |
+
+---
+
+## 6. Depth & Motion
+
+### 6.1 그림자
+| 클래스 | 쓰임 |
+|---|---|
+| `shadow-1` | 살짝 뜬 요소 (눌리는 카드) |
+| `shadow-2` | 떠 있는 카드 (`Card variant="elevated"`) |
+| `shadow-3` | 겹쳐 뜨는 것 (Dialog, 메뉴) |
+
+neutral은 흐린 그림자, paper는 흐림 없이 어긋난 그림자(종이 겹침). 그림자를 직접 만들지 않는다.
+
+### 6.2 모션
+| 토큰 | 값 | 쓰임 |
+|---|---|---|
+| `duration.fast` | 120ms | hover, 닫힘 |
+| `duration.normal` | 200ms | 기본 전환, 열림 (`transition-*` 기본값) |
+| `duration.slow` | 320ms | 큰 화면 전환 |
+| `ease-standard` | cubic-bezier(0.2, 0, 0, 1) | 모든 전환 |
+
+- 색·배경 바뀜은 `transition-colors` 하나면 된다 (길이·곡선은 기본값이 토큰).
+- 등장·퇴장 애니메이션은 `animate-fade-in/out`, `animate-pop-in/out`.
+- 모션 줄이기 설정이면 모든 길이가 0 — 따로 처리할 필요 없다.
+
+---
+
+## 7. Writing
+
+문구 규칙 (원칙 12). 모든 화면 글자에 적용.
+
+| 규칙 | ✓ | ✗ |
+|---|---|---|
+| **해요체** | "사진을 올렸어요" | "사진이 업로드되었습니다" |
+| **버튼은 동사로 끝낸다** | "저장하기", "사진 추가하기" | "확인", "OK", "저장" |
+| **같은 동작엔 같은 단어** | 늘 "삭제하기" | 화면마다 "삭제" / "지우기" / "제거" |
+| **에러는 원인 + 해결** | "이메일 형식이 아니에요. @ 뒤에 주소까지 입력해 주세요." | "잘못된 입력입니다" |
+| **확인은 질문으로, 대상을 구체적으로** | "'여름의 끝' 앨범을 삭제할까요?" | "정말 삭제하시겠습니까?" |
+| **되돌릴 수 없으면 말한다** | "되돌릴 수 없어요" | (안 알림) |
+| **빈 화면엔 다음 행동** | "아직 사진이 없어요. 첫 사진을 올려 보세요." | "데이터 없음" |
+| **진행 중** | "저장하는 중" | "저장 중..." / "Loading" |
+| **짧게** | 배지 2~6자, 버튼 2~8자 | |
+
+자주 쓰는 동작 단어: 저장하기 · 취소하기 · 삭제하기 · 만들기 · 바꾸기 · 올리기 · 닫기 · 다음으로 · 공유하기.
+
+---
+
+## 8. Do's and Don'ts
+
+| ✓ Do | ✗ Don't | 왜 |
+|---|---|---|
+| `bg-layer-2`, `text-muted` | `bg-gray-100`, `text-gray-500`, `#f5f5f5` | 테마·다크·고대비가 안 바뀜 (lint 에러) |
+| `p-4`, `gap-2` | `p-[13px]`, `style={{ padding: 12 }}` | 4px 단위가 깨짐 (lint 에러) |
+| `text-body`, `text-title2 font-heading` | `text-sm`, `text-[15px]` | iOS 이름 체계 (lint 에러) |
+| solid 배경 위 `text-on-*` | `bg-brand-solid text-white` | 다크·고대비에서 대비 깨짐 |
+| `<Button tone="danger">` | `<Button className="bg-red-…">` | 상태색·hover가 다 따라와야 함 |
+| 있는 컴포넌트부터 (`src/components/ui/`) | 비슷한 버튼을 새로 만들기 | |
+| 한 영역에 `solid` 버튼 1개 | `solid` 여러 개 | 주요 동작이 흐려짐 |
+| 색 + 글자로 상태 전달 | 빨간 점 하나 | 색을 못 보는 사람 |
+| 포커스 링은 그대로 | `outline-none` | 키보드 사용자가 길을 잃음 |
+| 사진이 주인공이면 neutral, 장식 빼기 | 사진 옆에 브랜드 색 배경 | 원칙: UI가 물러난다 |
+
+---
+
+## 9. Agent Prompt Guide
+
+### 9.1 빠른 참조
+```
+배경   bg-layer-1(바탕) bg-layer-2(카드) bg-layer-3(카드 안) bg-overlay
+       bg-{tone}-solid|-hover|-pressed  bg-{tone}-weak|-hover|-pressed
+글자   text-default text-muted text-subtle text-disabled text-{tone} text-on-{tone}
+테두리 border(기본색) border-strong border-focus border-danger · outline-focus ring-focus
+tone   neutral brand danger success warning info
+크기   text-large-title title1 title2 title3 headline body callout subheadline footnote caption1 caption2
+       제목(large-title, title1~3)은 font-heading 같이
+굵기   font-regular font-semibold font-bold
+간격   p-N m-N gap-N (N×4px: 1 2 3 4 5 6 8 10 12 16)
+모서리 rounded-sm rounded-md rounded-lg rounded-full
+그림자 shadow-1 shadow-2 shadow-3
+폭     max-w-xs(448) sm(640) md(768) lg(1024)
+모션   transition-colors(기본 200ms ease-standard) animate-fade-in animate-pop-in
+```
+
+### 9.2 컴포넌트
+```tsx
+import { Button } from '@/components/ui/button'      // variant solid|weak|outline|ghost · tone neutral|brand|danger · size sm|md|lg|icon · loading · asChild
+import { Input } from '@/components/ui/input'        // label hint error required
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'  // variant outlined|elevated|flat
+import { Badge } from '@/components/ui/badge'        // variant weak|solid · tone neutral|brand|danger|success|warning|info
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from '@/components/ui/dialog'  // DialogContent tone neutral|danger
+```
+
+### 9.3 예시 요청 → 결과
+**"앨범 카드 목록 만들어줘"**
+```tsx
+<main className="mx-auto w-full max-w-lg px-4 py-10">
+  <h1 className="font-heading text-large-title text-default">앨범</h1>
+  <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+    {albums.map((a) => (
+      <li key={a.id}>
+        <Card>
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle>{a.title}</CardTitle>
+              <Badge tone={a.public ? 'success' : 'neutral'}>{a.public ? '공개됨' : '비공개'}</Badge>
+            </div>
+            <CardDescription>{a.date} · 사진 {a.count}장</CardDescription>
+          </CardHeader>
+          <CardFooter>
+            <Button size="sm">열기</Button>
+          </CardFooter>
+        </Card>
+      </li>
+    ))}
+  </ul>
+</main>
+```
+
+**"설정 화면"** → `max-w-sm`, 구획마다 `Card variant="flat"`, 라벨 있는 `Input`, 아래에 `저장하기`(solid) + `취소하기`(weak · neutral).
+
+### 9.4 자주 쓰는 패턴
+컴포넌트가 아직 없는 것들. 아래 모양 그대로 쓴다.
+
+**빈 화면** — 무엇이 없는지 + 다음 행동 버튼 하나
+```tsx
+<div className="flex flex-col items-center gap-4 rounded-lg bg-layer-2 px-6 py-16 text-center">
+  <p className="text-headline text-default">아직 앨범이 없어요</p>
+  <p className="text-callout text-muted">첫 앨범을 만들어 사진을 모아 보세요.</p>
+  <Button>앨범 만들기</Button>
+</div>
+```
+
+**처리 결과 알림** (저장됐어요, 실패했어요) — `role="status"`, tone의 weak 배경
+```tsx
+<p role="status" className="rounded-md bg-success-weak p-3 text-callout text-success">저장했어요.</p>
+<p role="alert" className="rounded-md bg-danger-weak p-3 text-callout text-danger">저장하지 못했어요. 잠시 뒤 다시 시도해 주세요.</p>
+```
+
+**위험 구역** (계정 삭제 등) — 화면 맨 아래 따로. 테두리 tone은 `className`으로 바꿔도 된다 (4장의 예외)
+```tsx
+<Card variant="outlined" className="border-danger">
+  <CardHeader>
+    <CardTitle className="text-danger">위험 구역</CardTitle>
+    <CardDescription>계정을 삭제하면 사진과 앨범이 모두 사라져요. 되돌릴 수 없어요.</CardDescription>
+  </CardHeader>
+  <CardFooter><Button variant="outline" tone="danger">계정 삭제하기</Button></CardFooter>
+</Card>
+```
+
+**여러 줄 입력** — Textarea 컴포넌트 전까지
+```tsx
+import { inputClass } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
+<textarea className={cn(inputClass, 'h-auto py-2')} rows={4} />  // 라벨은 Input과 같은 모양으로 직접
+```
+
+### 9.5 끝내기 전에
+1. `npm run lint` — 에러 0
+2. 새 문구가 7장 규칙에 맞는지
+3. 테마를 바꿔도(neutral ↔ paper, 다크) 깨지지 않는지 — 토큰만 썼다면 자동으로 맞다

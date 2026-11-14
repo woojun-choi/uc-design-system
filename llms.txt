@@ -1,0 +1,29 @@
+# uc-design-system
+
+> uzun choi의 개인 디자인 시스템. shadcn/ui + Tailwind v4 + DTCG 토큰. 테마 2(neutral·paper) × 라이트/다크 × 기본/고대비. 웹은 CSS 변수·Tailwind 클래스, iOS는 SwiftUI 색. 화면은 토큰 클래스와 src/components/ui 컴포넌트로만 만든다.
+
+AI는 AGENTS.md를 먼저 읽고, DESIGN.md에서는 필요한 장만 읽는다. 하드코딩은 `npm run lint`가 에러로 잡는다.
+
+## 규칙
+- [AGENTS.md](AGENTS.md): AI 핵심 규칙 10줄 + 어디를 읽을지
+- [DESIGN.md](DESIGN.md): 디자인 규칙 원본 (9장 = 빠른 참조)
+
+## DESIGN.md 장
+- [1. 테마·무드](DESIGN.md#1-visual-theme--atmosphere): neutral · paper, data-uc-* 속성
+- [2. 색](DESIGN.md#2-color-palette--roles): bg/fg/stroke × tone, on- 짝
+- [3. 글자](DESIGN.md#3-typography-rules): iOS Dynamic Type 이름, 글꼴
+- [4. 컴포넌트](DESIGN.md#4-component-stylings): Button · Input · Card · Badge · Dialog 규격
+- [5. 여백·레이아웃](DESIGN.md#5-layout--spacing): 4px 간격, 컨테이너, 배경 층, 모서리
+- [6. 깊이·모션](DESIGN.md#6-depth--motion): 그림자 3단계, 모션 토큰
+- [7. 문구](DESIGN.md#7-writing): 해요체, 동사 버튼, 에러 = 원인 + 해결
+- [8. Do·Don't](DESIGN.md#8-dos-and-donts)
+- [9. AI 빠른 참조](DESIGN.md#9-agent-prompt-guide): 클래스 목록, 컴포넌트 import, 예시
+
+## 코드
+- [src/components/ui/](src/components/ui/): 컴포넌트 소스
+- [src/styles/tokens.theme.css](src/styles/tokens.theme.css): 쓸 수 있는 Tailwind 이름 전체 (자동 생성)
+- [dist/tokens.json](dist/tokens.json): 테마 × 모드 × 대비별 최종 값
+
+## 선택
+- [docs/](docs/): 설계 문서, 결정 기록, 로드맵
+- [research/](research/): 디자인 시스템 11개 읽기 노트

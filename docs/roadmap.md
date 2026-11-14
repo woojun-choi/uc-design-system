@@ -7,8 +7,8 @@
 | **M0** ✅ | 스파이크 | seed 색 하나 바꾸면 CSS · Tailwind · Swift 출력이 다 바뀐다 |
 | **M1** ✅ | 기초 토큰 + DESIGN.md 초안 | 테마 2 × 모드 3을 Storybook에서 토글로 보고, 대비 자동 검사 통과 |
 | **M2** ✅ | 핵심 컴포넌트 5개 | 5개 × variant × tone 스토리 완성, 키보드·포커스 확인 |
-| **M3** ▶ | AI 레이어 | AI에게 카드 화면을 시켰을 때 하드코딩 값 0개 |
-| M4 | 문서 정리 · 배포 | Storybook 배포, 문서만 보고 다른 프로젝트에 붙일 수 있다 |
+| **M3** ✅ | AI 레이어 | AI에게 카드 화면을 시켰을 때 하드코딩 값 0개 |
+| **M4** ▶ | 문서 정리 · 배포 | Storybook 배포, 문서만 보고 다른 프로젝트에 붙일 수 있다 |
 | M5 | 실전 적용 | 포트폴리오에 적용, 부족한 토큰·컴포넌트 보강 |
 
 ## M0 — 스파이크
@@ -46,16 +46,18 @@
 - [ ] 다크 모드 weak 배경(남색) 판단 — 아래 열린 질문
 
 ## M3 — AI 레이어
-- [ ] DESIGN.md 완성 (5~9장)
-- [ ] AGENTS.md · Claude Code 스킬 · llms.txt
-- [ ] lint: hex·임의 px 금지 규칙
-- [ ] AI 테스트 ([06-ai-layer](06-ai-layer.md#검증-방법))
+> 2026-11-15 완료. 규칙을 모르는 에이전트 2개가 문서만 보고 만든 화면에서 첫 초안 lint 에러 0.
+
+- [x] DESIGN.md 완성 (5~9장)
+- [x] AGENTS.md · Claude Code 스킬(`uc-ui`) · llms.txt
+- [x] lint: 토큰에 없는 클래스, 임의 값, hex·색 함수, style 숫자 금지 (`npm run lint`)
+- [x] AI 테스트 — 화면 2개, 첫 초안 하드코딩 0 ([06-ai-layer](06-ai-layer.md#검증-결과-m3-2026-11-15))
 
 ## M4 — 문서 정리 · 배포
 - [ ] UX 문구 규칙 페이지
 - [ ] README 사용법 정비
 - [ ] Storybook 배포 (Vercel 또는 GitHub Pages)
-- [ ] 2차 컴포넌트(Typography, Separator, Textarea, Select, Sheet, Tooltip) 중 필요한 것
+- [ ] 2차 컴포넌트: **Textarea · Alert(알림)부터** (AI 테스트에서 빠져서 짐작함), 그다음 Separator, Select, Sheet, Tooltip
 
 ## M5 — 실전 적용
 - [ ] 사진 포트폴리오에 적용 → 3차 컴포넌트(Figure, Gallery Grid, Lightbox, 내비게이션)
