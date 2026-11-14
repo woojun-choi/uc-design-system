@@ -3,6 +3,21 @@
 @import './tokens.theme.css';
 @import './shadcn.css';
 
+/* 컴포넌트 등장·퇴장 (Dialog 등). 길이는 모션 토큰을 따라서 모션 줄이기면 0 */
+@theme {
+  --animate-fade-in: uc-fade-in var(--uc-duration-normal) var(--uc-easing-standard);
+  --animate-fade-out: uc-fade-out var(--uc-duration-fast) var(--uc-easing-standard);
+  --animate-pop-in: uc-pop-in var(--uc-duration-normal) var(--uc-easing-standard);
+  --animate-pop-out: uc-pop-out var(--uc-duration-fast) var(--uc-easing-standard);
+  --animate-spin: spin 1s linear infinite;
+
+  @keyframes uc-fade-in { from { opacity: 0; } }
+  @keyframes uc-fade-out { to { opacity: 0; } }
+  @keyframes uc-pop-in { from { opacity: 0; scale: 0.96; } }
+  @keyframes uc-pop-out { to { opacity: 0; scale: 0.96; } }
+  @keyframes spin { to { rotate: 360deg; } }
+}
+
 /* 글꼴은 쓰는 쪽에서 불러온다: Pretendard, (paper) 마루 부리 — DESIGN.md 3장 */
 
 @layer base {

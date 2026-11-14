@@ -6,8 +6,8 @@
 |---|---|---|
 | **M0** ✅ | 스파이크 | seed 색 하나 바꾸면 CSS · Tailwind · Swift 출력이 다 바뀐다 |
 | **M1** ✅ | 기초 토큰 + DESIGN.md 초안 | 테마 2 × 모드 3을 Storybook에서 토글로 보고, 대비 자동 검사 통과 |
-| **M2** ▶ | 핵심 컴포넌트 5개 | 5개 × variant × tone 스토리 완성, 키보드·포커스 확인 |
-| M3 | AI 레이어 | AI에게 카드 화면을 시켰을 때 하드코딩 값 0개 |
+| **M2** ✅ | 핵심 컴포넌트 5개 | 5개 × variant × tone 스토리 완성, 키보드·포커스 확인 |
+| **M3** ▶ | AI 레이어 | AI에게 카드 화면을 시켰을 때 하드코딩 값 0개 |
 | M4 | 문서 정리 · 배포 | Storybook 배포, 문서만 보고 다른 프로젝트에 붙일 수 있다 |
 | M5 | 실전 적용 | 포트폴리오에 적용, 부족한 토큰·컴포넌트 보강 |
 
@@ -22,7 +22,7 @@
 - [x] 덤: 테마 · 모드(light/dark) 툴바, `기초/팔레트` 스토리
 
 ## M1 — 기초 토큰
-> 2026-11-14 완료. 테마 2 × 모드 2 × 대비 2 = 8조합 모두 대비 검사 58쌍 통과.
+> 2026-11-14 완료. 테마 2 × 모드 2 × 대비 2 = 8조합 모두 대비 검사 통과 (M2에서 neutral tone 추가 후 66쌍).
 
 - [x] semantic 토큰 전체 (색·글자·간격·모서리·그림자·모션·컨테이너)
 - [x] 고대비 — 모드와 별도 축(`data-uc-contrast`)으로, 라이트·다크 둘 다
@@ -36,10 +36,14 @@
 - [x] DESIGN.md 1~3장 초안
 
 ## M2 — 핵심 컴포넌트
-- [ ] Button · Input · Card · Badge · Dialog ([05-components](05-components.md))
-- [ ] 컴포넌트마다 문서 1장 형식 (MDX)
-- [ ] 접근성 애드온 통과
-- [ ] DESIGN.md 4장(컴포넌트 규격)
+> 2026-11-14 완료. 스토리 16개 × 8조합 axe 검사 위반 0, Dialog 키보드(포커스 가두기·Esc·포커스 복귀) 확인.
+
+- [x] Button · Input · Card · Badge · Dialog ([05-components](05-components.md))
+- [x] neutral tone 토큰 추가 (`bg.neutral.*`, `fg.neutral`, `fg.on-neutral`)
+- [x] 컴포넌트마다 문서 1장 형식 (MDX: 언제 쓰나 · Do/Don't · 접근성 · 코드 · 변경 이력)
+- [x] 접근성 애드온(`@storybook/addon-a11y`) 통과
+- [x] DESIGN.md 4장(컴포넌트 규격)
+- [ ] 다크 모드 weak 배경(남색) 판단 — 아래 열린 질문
 
 ## M3 — AI 레이어
 - [ ] DESIGN.md 완성 (5~9장)

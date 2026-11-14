@@ -1,7 +1,7 @@
 # DESIGN.md — uc-design-system
 
 > 사람과 AI가 같이 읽는 디자인 규칙 원본. 토큰이 바뀌면 이 문서도 같은 커밋에서 고친다.
-> 지금은 1~3장 초안 (M1). 4~9장은 M2~M3에서 채운다. 값의 원본은 `tokens/`, 최종 값은 `dist/tokens.json`.
+> 1~4장 초안 (M1·M2). 5~9장은 M3에서 채운다. 값의 원본은 `tokens/`, 최종 값은 `dist/tokens.json`.
 
 **가장 중요한 규칙:** 색·간격·모서리·글자 크기는 **토큰 이름으로만** 쓴다. hex, `px` 직접 입력, Tailwind 기본 색(`bg-blue-500`)·크기(`text-sm`)는 쓰지 않는다 — 기본값은 빌드에서 지워져 있어서 써도 동작하지 않는다.
 
@@ -68,6 +68,7 @@
 ### 2.5 tone (의미)
 | tone | 계열 | 쓰임 |
 |---|---|---|
+| `neutral` | gray | 중립 동작. solid는 검정(다크에선 흰색) |
 | `brand` | brand | 주요 동작, 선택됨 |
 | `danger` | red | 삭제, 에러 |
 | `success` | green | 완료, 성공 |
@@ -139,7 +140,66 @@ shadcn 컴포넌트를 그대로 붙여 넣어도 테마를 따르도록 `--back
 
 ---
 
-## 4~9장 (예정)
-4 Component Stylings (M2) · 5 Layout & Spacing · 6 Depth & Motion · 7 Writing · 8 Do's and Don'ts · 9 Agent Prompt Guide (M3)
+## 4. Component Stylings
 
-미리 알아 둘 값: 간격 `p-N` = N × 4px · 모서리 `rounded-sm/md/lg/full` · 그림자 `shadow-1/2/3` · 컨테이너 `max-w-sm/md/lg` · 전환 `ease-standard`, 기본 200ms.
+컴포넌트는 `src/components/ui/`에 있다. **새로 만들기 전에 여기 있는지 먼저 본다.** 스타일은 props(`variant` · `tone` · `size`)로만 바꾸고, `className`으로 색을 덮어쓰지 않는다 (레이아웃용 `className`은 괜찮다: `w-full`, `mt-4` 등).
+
+공통 API (원칙 8):
+- `variant` = 강조 정도 · `tone` = 의미 (`neutral` `brand` `danger` `success` `warning` `info`) · `size` = `sm` `md` `lg`
+- 포커스 링은 전역 `:focus-visible`이 그린다. 컴포넌트에서 `outline-none` 하지 않는다.
+
+### 4.1 Button
+| prop | 값 | 기본 |
+|---|---|---|
+| `variant` | `solid` `weak` `outline` `ghost` | `solid` |
+| `tone` | `neutral` `brand` `danger` | `brand` |
+| `size` | `sm`(32) `md`(40) `lg`(48) `icon`(40×40) | `md` |
+| `loading` | 스피너 + 누를 수 없음 (`aria-busy`) | |
+| `asChild` | 자식(`<a>`)에 버튼 모양 | |
+
+- 화면의 주요 동작 1개만 `solid`. 나머지는 `weak` · `outline` · `ghost`.
+- 글자는 동사로 끝낸다: "저장하기", "삭제하기". "확인" ✗.
+- 아이콘만 있으면 `size="icon"` + `aria-label`.
+- 모서리 `rounded-md`, 글자 `font-semibold`, 비활성은 투명도 40%.
+
+### 4.2 Input
+| prop | 쓰임 |
+|---|---|
+| `label` | 항상 보이는 라벨. 없으면 `aria-label` 필수 |
+| `hint` | 아래 도움말 |
+| `error` | 에러 문구(원인 + 해결). 있으면 `stroke.danger` 테두리 + `aria-invalid` |
+| `required` | 라벨에 `*` |
+
+- 높이 40, `rounded-md`, 테두리 `stroke.strong`, 포커스 시 `stroke.focus`.
+- placeholder는 예시만 ("예: 여름의 끝"). 라벨 대신 쓰지 않는다.
+
+### 4.3 Card
+| `variant` | 모습 |
+|---|---|
+| `outlined` (기본) | `bg-layer-1` + 테두리 |
+| `elevated` | `bg-layer-1` + `shadow-2` |
+| `flat` | `bg-layer-2` |
+
+조각: `CardHeader` · `CardTitle`(h3, `text-headline`) · `CardDescription` · `CardContent` · `CardFooter`. 안쪽 여백 `p-5`, 조각 사이 `gap-4`, 모서리 `rounded-lg`. 카드 안에 카드 ✗. 사진 카드는 `flat` + `p-0 overflow-hidden`.
+
+### 4.4 Badge
+| prop | 값 | 기본 |
+|---|---|---|
+| `variant` | `weak` `solid` | `weak` |
+| `tone` | `neutral` `brand` `danger` `success` `warning` `info` | `neutral` |
+
+누르는 요소가 아니다. 2~6자. 같은 상태엔 항상 같은 tone (공개됨 = `success`, 실패 = `danger`, 검토 중 = `warning`).
+
+### 4.5 Dialog
+조각: `Dialog` · `DialogTrigger` · `DialogContent`(`tone`, `showClose`) · `DialogHeader` · `DialogTitle` · `DialogDescription` · `DialogFooter` · `DialogClose`.
+
+- 폭 `max-w-xs`(448), `rounded-lg`, `shadow-3`, 뒤는 `bg-overlay`.
+- `DialogTitle`은 꼭 둔다. 버튼은 `DialogFooter`에 2개까지, 주요 버튼이 오른쪽.
+- **삭제 확인:** `tone="danger"` + `showClose={false}`, 제목은 "'○○'을 삭제할까요?", 설명에 "되돌릴 수 없어요", 버튼은 `취소하기`(weak · neutral) + `삭제하기`(solid · danger), 처음 포커스는 취소.
+
+---
+
+## 5~9장 (예정)
+5 Layout & Spacing · 6 Depth & Motion · 7 Writing · 8 Do's and Don'ts · 9 Agent Prompt Guide (M3)
+
+미리 알아 둘 값: 간격 `p-N` = N × 4px · 모서리 `rounded-sm/md/lg/full` · 그림자 `shadow-1/2/3` · 컨테이너 `max-w-xs/sm/md/lg` (448/640/768/1024) · 전환 `ease-standard`, 기본 200ms.

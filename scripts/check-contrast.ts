@@ -12,7 +12,7 @@ const { themes } = JSON.parse(readFileSync(join(ROOT, 'dist/tokens.json'), 'utf8
   themes: Record<string, Record<string, Record<string, string>>>
 }
 
-const TONES = ['brand', 'danger', 'success', 'warning', 'info']
+const TONES = ['neutral', 'brand', 'danger', 'success', 'warning', 'info']
 const LAYERS = ['bg-layer-1', 'bg-layer-2', 'bg-layer-3']
 type Pair = [fg: string, bg: string, min: number]
 const pairs: Pair[] = []

@@ -1,0 +1,60 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks'
+import * as Stories from './Card.stories'
+
+<Meta of={Stories} />
+
+# Card
+
+관련된 내용을 **한 덩어리**로 묶는다. 조각: `CardHeader` · `CardTitle` · `CardDescription` · `CardContent` · `CardFooter`.
+
+<Canvas of={Stories.기본} />
+<Controls of={Stories.기본} />
+
+## 언제 쓰나 / 언제 안 쓰나
+| 쓴다 | 안 쓴다 |
+|---|---|
+| 목록의 항목 하나하나 (앨범, 글) | 화면 전체를 감싸기 — 이미 `bg-layer-1` 위다 |
+| 설정 묶음 | 카드 안에 카드 — `bg-layer-3` 구획으로 |
+
+## 종류 (variant)
+| variant | 모습 | 쓰임 |
+|---|---|---|
+| `elevated` | 그림자 (`shadow-2`) | 바탕 위에 띄워야 할 때. paper에선 종이 겹침 |
+| `outlined` (기본) | 테두리 | 목록, 대부분 |
+| `flat` | `bg-layer-2` 배경 | 사진 카드, 조용한 구획 |
+
+<Canvas of={Stories.종류} />
+<Canvas of={Stories.사진_카드} />
+
+## Do · Don't
+| ✓ Do | ✗ Don't |
+|---|---|
+| 한 화면에선 한 종류로 통일 | elevated와 outlined 섞기 |
+| 제목은 `CardTitle` | 제목을 `<div>`로 |
+| 카드 전체를 누르게 하려면 제목을 링크로 | 카드 `<div>`에 onClick |
+
+## 접근성 체크
+- [x] `CardTitle`은 `<h3>`. 화면 제목 순서(h1 → h2 → h3)가 다르면 같은 클래스(`text-headline text-default`)로 맞는 h 태그를 쓴다
+- [x] 카드 자체는 포커스 안 됨. 안의 버튼·링크만
+- [x] 글자 대비: `bg-layer-1/2` 위 fg 토큰 모두 4.5 이상
+
+## 코드
+```tsx
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
+
+<Card>
+  <CardHeader>
+    <CardTitle>여름의 끝</CardTitle>
+    <CardDescription>2026년 8월 · 사진 12장</CardDescription>
+  </CardHeader>
+  <CardContent>…</CardContent>
+  <CardFooter><Button size="sm">열기</Button></CardFooter>
+</Card>
+```
+
+<ArgTypes of={Stories} />
+
+## 변경 이력
+| 날짜 | 내용 |
+|---|---|
+| 2026-11-14 | 처음 만듦 (M2) |

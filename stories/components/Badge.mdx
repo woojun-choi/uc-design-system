@@ -1,0 +1,50 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks'
+import * as Stories from './Badge.stories'
+
+<Meta of={Stories} />
+
+# Badge
+
+상태나 분류를 **짧게** 보여 주는 표시. 누르는 요소가 아니다.
+
+<Canvas of={Stories.기본} />
+<Controls of={Stories.기본} />
+
+## 언제 쓰나 / 언제 안 쓰나
+| 쓴다 | 안 쓴다 |
+|---|---|
+| 상태: 공개됨, 검토 중, 실패 | 누르는 필터·태그 → Button (`size="sm"`) |
+| 개수·새 항목 표시 | 긴 문장 — 2~6자가 적당 |
+
+## variant × tone
+기본은 `weak`. 한 화면에서 꼭 눈에 띄어야 하는 것만 `solid`.
+
+<Canvas of={Stories.조합} />
+<Canvas of={Stories.아이콘} />
+
+## Do · Don't
+| ✓ Do | ✗ Don't |
+|---|---|
+| 같은 상태엔 항상 같은 tone (공개됨 = success) | 화면마다 다른 색 |
+| 색만으로 뜻을 전하지 않기 — 글자를 같이 | 빨간 점 하나만 |
+| 목록에선 `weak` | 목록 줄마다 `solid` |
+
+## 접근성 체크
+- [x] `<span>` — 포커스 안 됨 (누르는 요소가 아님)
+- [x] 글자 대비: solid는 `fg.on-*`, weak는 `fg.*` — 모두 4.5 이상
+- [x] 글자로 의미 전달 (색은 보조)
+
+## 코드
+```tsx
+import { Badge } from '@/components/ui/badge'
+
+<Badge tone="success">공개됨</Badge>
+<Badge variant="solid" tone="danger">실패</Badge>
+```
+
+<ArgTypes of={Stories} />
+
+## 변경 이력
+| 날짜 | 내용 |
+|---|---|
+| 2026-11-14 | 처음 만듦 (M2). tone에 info 추가 |

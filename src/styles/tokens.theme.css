@@ -23,6 +23,7 @@
   --font-sans: var(--uc-font-family-sans);
   --font-heading: var(--uc-font-family-heading);
   --ease-standard: var(--uc-easing-standard);
+  --container-xs: var(--uc-container-xs);
   --container-sm: var(--uc-container-sm);
   --container-md: var(--uc-container-md);
   --container-lg: var(--uc-container-lg);
@@ -30,6 +31,12 @@
   --background-color-layer-2: var(--uc-bg-layer-2);
   --background-color-layer-3: var(--uc-bg-layer-3);
   --background-color-overlay: var(--uc-bg-overlay);
+  --background-color-neutral-solid: var(--uc-bg-neutral-solid);
+  --background-color-neutral-solid-hover: var(--uc-bg-neutral-solid-hover);
+  --background-color-neutral-solid-pressed: var(--uc-bg-neutral-solid-pressed);
+  --background-color-neutral-weak: var(--uc-bg-neutral-weak);
+  --background-color-neutral-weak-hover: var(--uc-bg-neutral-weak-hover);
+  --background-color-neutral-weak-pressed: var(--uc-bg-neutral-weak-pressed);
   --background-color-brand-solid: var(--uc-bg-brand-solid);
   --background-color-brand-solid-hover: var(--uc-bg-brand-solid-hover);
   --background-color-brand-solid-pressed: var(--uc-bg-brand-solid-pressed);
@@ -64,6 +71,8 @@
   --text-color-muted: var(--uc-fg-muted);
   --text-color-subtle: var(--uc-fg-subtle);
   --text-color-disabled: var(--uc-fg-disabled);
+  --text-color-neutral: var(--uc-fg-neutral);
+  --text-color-on-neutral: var(--uc-fg-on-neutral);
   --text-color-brand: var(--uc-fg-brand);
   --text-color-on-brand: var(--uc-fg-on-brand);
   --text-color-danger: var(--uc-fg-danger);

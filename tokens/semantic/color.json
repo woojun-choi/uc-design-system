@@ -20,6 +20,27 @@
       "$value": "#00000066",
       "$description": "Dialog 뒤"
     },
+    "neutral": {
+      "solid": {
+        "$value": "{color.gray.90}",
+        "$description": "검은(다크에선 흰) 버튼"
+      },
+      "solid-hover": {
+        "$value": "{color.gray.80}"
+      },
+      "solid-pressed": {
+        "$value": "{color.gray.70}"
+      },
+      "weak": {
+        "$value": "{color.gray.10}"
+      },
+      "weak-hover": {
+        "$value": "{color.gray.20}"
+      },
+      "weak-pressed": {
+        "$value": "{color.gray.30}"
+      }
+    },
     "brand": {
       "solid": {
         "$value": "{color.brand.50}"
@@ -136,6 +157,14 @@
     "disabled": {
       "$value": "{color.gray.40}",
       "$description": "대비 4.5 미만 — 비활성 표시 전용"
+    },
+    "neutral": {
+      "$value": "{color.gray.90}",
+      "$description": "neutral tone 글자 = fg.default와 같음"
+    },
+    "on-neutral": {
+      "$value": "{color.background}",
+      "$description": "bg.neutral.solid 위 글자"
     },
     "brand": {
       "$value": "{color.brand.60}"

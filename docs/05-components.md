@@ -10,11 +10,13 @@ shadcn/ui 컴포넌트를 가져와 uc 토큰으로 바꿔 끼운다. Radix 기�
 ## 1차 — 핵심 5개 (M2)
 | 컴포넌트 | variant | tone | 메모 |
 |---|---|---|---|
-| Button | solid · weak · outline · ghost | neutral · brand · danger | 로딩 상태, 아이콘 자리 |
-| Input | — | neutral · danger | 라벨·도움말·에러 문구 포함 (UX 문구 규칙 예시) |
+| Button | solid · weak · outline · ghost | neutral · brand · danger | 로딩 상태, 아이콘 자리, asChild(링크) |
+| Input | — | (error가 있으면 danger) | 라벨·도움말·에러 문구 포함 (UX 문구 규칙 예시) |
 | Card | elevated · outlined · flat | — | `bg.layer` 단계 사용 |
-| Badge | solid · weak | neutral · brand · danger · success · warning | |
+| Badge | solid · weak | neutral · brand · danger · success · warning · info | |
 | Dialog | — | neutral · danger | 포커스 가두기, Esc 닫기, 삭제 확인 패턴 |
+
+> M2 완료 (2026-11-14): `src/components/ui/`, 문서는 Storybook `컴포넌트/*` (MDX 1장씩).
 
 ## 2차 — 기본기 채우기
 Typography(Heading/Text), Separator, Textarea, Select, Sheet, Tooltip

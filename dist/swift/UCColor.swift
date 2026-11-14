@@ -8,6 +8,12 @@ public struct UCColors: Sendable {
     public let bgLayer2: Color
     public let bgLayer3: Color
     public let bgOverlay: Color
+    public let bgNeutralSolid: Color
+    public let bgNeutralSolidHover: Color
+    public let bgNeutralSolidPressed: Color
+    public let bgNeutralWeak: Color
+    public let bgNeutralWeakHover: Color
+    public let bgNeutralWeakPressed: Color
     public let bgBrandSolid: Color
     public let bgBrandSolidHover: Color
     public let bgBrandSolidPressed: Color
@@ -42,6 +48,8 @@ public struct UCColors: Sendable {
     public let fgMuted: Color
     public let fgSubtle: Color
     public let fgDisabled: Color
+    public let fgNeutral: Color
+    public let fgOnNeutral: Color
     public let fgBrand: Color
     public let fgOnBrand: Color
     public let fgDanger: Color
@@ -64,6 +72,12 @@ extension UCColors {
         bgLayer2: .uc(0xF9F9F9FF, 0x1C1C1CFF, 0xF7F7F8FF, 0x1E1E1EFF),
         bgLayer3: .uc(0xEEEEEEFF, 0x242424FF, 0xE9E9E9FF, 0x282828FF),
         bgOverlay: .uc(0x00000066, 0x000000A6, 0x00000066, 0x000000A6),
+        bgNeutralSolid: .uc(0x272727FF, 0xEBEAEBFF, 0x030303FF, 0xFFFFFFFF),
+        bgNeutralSolidHover: .uc(0x3C3C3CFF, 0xCBCACBFF, 0x272727FF, 0xEBEAEBFF),
+        bgNeutralSolidPressed: .uc(0x515051FF, 0xAEADAEFF, 0x3D3D3DFF, 0xC9C8C9FF),
+        bgNeutralWeak: .uc(0xEEEEEEFF, 0x242424FF, 0xE9E9E9FF, 0x282828FF),
+        bgNeutralWeakHover: .uc(0xE1E1E1FF, 0x2D2D2DFF, 0xD8D8D8FF, 0x333333FF),
+        bgNeutralWeakPressed: .uc(0xCCCCCCFF, 0x3B3B3BFF, 0xBFBFBFFF, 0x444444FF),
         bgBrandSolid: .uc(0x4A6FE1FF, 0x3F65DDFF, 0x365AD3FF, 0x385BD5FF),
         bgBrandSolidHover: .uc(0x3658D2FF, 0x2C4CC4FF, 0x2643BBFF, 0x1C35ADFF),
         bgBrandSolidPressed: .uc(0x2643BBFF, 0x2C4CC4FF, 0x172DA4FF, 0x1C35ADFF),
@@ -98,6 +112,8 @@ extension UCColors {
         fgMuted: .uc(0x515051FF, 0xAEADAEFF, 0x3D3D3DFF, 0xC9C8C9FF),
         fgSubtle: .uc(0x636363FF, 0x969596FF, 0x515051FF, 0xAEADAEFF),
         fgDisabled: .uc(0xA3A3A4FF, 0x575757FF, 0x929292FF, 0x656566FF),
+        fgNeutral: .uc(0x272727FF, 0xEBEAEBFF, 0x030303FF, 0xFFFFFFFF),
+        fgOnNeutral: .uc(0xFFFFFFFF, 0x171717FF, 0xFFFFFFFF, 0x171717FF),
         fgBrand: .uc(0x3658D2FF, 0x7193EAFF, 0x2643BBFF, 0x91ACF1FF),
         fgOnBrand: .uc(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF),
         fgDanger: .uc(0xBC2A27FF, 0xE57469FF, 0xA40510FF, 0xEE968BFF),
@@ -119,6 +135,12 @@ extension UCColors {
         bgLayer2: .uc(0xEFE7D4FF, 0x231F19FF, 0xEDE5D2FF, 0x24201AFF),
         bgLayer3: .uc(0xE6DDCAFF, 0x2A2620FF, 0xE0D8C5FF, 0x2E2A24FF),
         bgOverlay: .uc(0x00000066, 0x000000A6, 0x00000066, 0x000000A6),
+        bgNeutralSolid: .uc(0x1C1813FF, 0xF5EEDFFF, 0x000000FF, 0xFFFFFFFF),
+        bgNeutralSolidHover: .uc(0x353129FF, 0xD7CDBAFF, 0x1C1813FF, 0xF5EEDFFF),
+        bgNeutralSolidPressed: .uc(0x4D463AFF, 0xBAAF9BFF, 0x37322BFF, 0xD5CBB8FF),
+        bgNeutralWeak: .uc(0xE6DDCAFF, 0x2A2620FF, 0xE0D8C5FF, 0x2E2A24FF),
+        bgNeutralWeakHover: .uc(0xD9D0BDFF, 0x342F28FF, 0xD1C7B3FF, 0x3A352DFF),
+        bgNeutralWeakPressed: .uc(0xC6BCA8FF, 0x433D33FF, 0xB9AF9AFF, 0x4D453AFF),
         bgBrandSolid: .uc(0xA3563DFF, 0xA75C44FF, 0x934126FF, 0xA15138FF),
         bgBrandSolidHover: .uc(0x914025FF, 0x934227FF, 0x7B2C10FF, 0x7C2D11FF),
         bgBrandSolidPressed: .uc(0x7B2C10FF, 0x934227FF, 0x641500FF, 0x7C2D11FF),
@@ -153,6 +175,8 @@ extension UCColors {
         fgMuted: .uc(0x4D463AFF, 0xBAAF9BFF, 0x37322BFF, 0xD5CBB8FF),
         fgSubtle: .uc(0x615748FF, 0xA29781FF, 0x4D463AFF, 0xBAAF9BFF),
         fgDisabled: .uc(0xA1957FFF, 0x625949FF, 0x91846EFF, 0x716754FF),
+        fgNeutral: .uc(0x1C1813FF, 0xF5EEDFFF, 0x000000FF, 0xFFFFFFFF),
+        fgOnNeutral: .uc(0xF4ECDAFF, 0x1E1A14FF, 0xF4ECDAFF, 0x1E1A14FF),
         fgBrand: .uc(0x914025FF, 0xC38B78FF, 0x7B2C10FF, 0xD3A698FF),
         fgOnBrand: .uc(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF),
         fgDanger: .uc(0xAF191AFF, 0xE6786DFF, 0x920000FF, 0xEF9A90FF),

@@ -52,9 +52,20 @@ const preview: Preview = {
         setAttr('data-uc-contrast', contrast)
         document.body.style.background = 'var(--uc-bg-layer-1)'
       }, [theme, mode, contrast])
+      // 문서 페이지의 미리보기 칸은 Storybook 흰 배경이라, 지금 테마의 바탕을 깔아 준다
+      if (ctx.viewMode === 'docs')
+        return (
+          <div className="rounded-md bg-layer-1 p-6 text-default">
+            <Story />
+          </div>
+        )
       return <Story />
     },
   ],
-  parameters: { layout: 'padded' },
+  parameters: {
+    layout: 'padded',
+    // 접근성 검사(axe). 'error'면 위반이 있을 때 테스트 실패로 본다
+    a11y: { test: 'error' },
+  },
 }
 export default preview

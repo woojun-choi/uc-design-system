@@ -1,0 +1,56 @@
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/addon-docs/blocks'
+import * as Stories from './Input.stories'
+
+<Meta of={Stories} />
+
+# Input
+
+한 줄 입력. **라벨 · 도움말 · 에러 문구**를 같이 갖춘다.
+
+<Canvas of={Stories.기본} />
+<Controls of={Stories.기본} />
+
+## 언제 쓰나 / 언제 안 쓰나
+| 쓴다 | 안 쓴다 |
+|---|---|
+| 이름, 이메일, 검색어처럼 짧은 값 | 여러 줄 → Textarea (2차) |
+| | 정해진 보기 중 고르기 → Select (2차) |
+
+## 상태
+tone은 따로 없다. `error`가 있으면 danger (빨간 테두리 + `aria-invalid`).
+
+<Canvas of={Stories.상태} />
+<Canvas of={Stories.검사_예시} />
+
+## Do · Don't
+| ✓ Do | ✗ Don't |
+|---|---|
+| 항상 보이는 `label` | placeholder를 라벨 대신 — 입력하면 사라진다 |
+| 에러는 **원인 + 해결**: "이메일 형식이 아니에요. @ 뒤에 주소까지 입력해 주세요." | "잘못된 입력", "오류" |
+| 제출할 때 검사, 고치면 바로 에러 지우기 | 한 글자 칠 때마다 에러 |
+| 문구는 해요체 | "입력하십시오" |
+| 라벨이 정말 없으면 `aria-label` | 이름 없는 입력 |
+
+## 접근성 체크
+- [x] `<label for>`로 연결 — 라벨을 눌러도 포커스
+- [x] 도움말·에러는 `aria-describedby`로 읽힘 (에러 먼저)
+- [x] 에러면 `aria-invalid`, 테두리 `stroke.danger`
+- [x] 필수는 `required` (별표는 `aria-hidden`, 스크린 리더는 required로 읽음)
+- [x] 테두리 `stroke.strong` — 배경 대비 3 이상, 고대비 2px
+- [x] placeholder `fg.subtle` 4.5 이상
+
+## 코드
+```tsx
+import { Input } from '@/components/ui/input'
+
+<Input label="앨범 이름" hint="20자까지 쓸 수 있어요" />
+<Input label="이메일" type="email" error="이메일 형식이 아니에요. @ 뒤에 주소까지 입력해 주세요." />
+<Input aria-label="사진 검색" placeholder="사진 검색" />
+```
+
+<ArgTypes of={Stories} />
+
+## 변경 이력
+| 날짜 | 내용 |
+|---|---|
+| 2026-11-14 | 처음 만듦 (M2) |

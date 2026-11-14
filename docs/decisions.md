@@ -42,3 +42,10 @@
 | 2026-11-14 | Tailwind 기본 글자 크기·그림자·글꼴·ease·container도 지움. 글자는 `text-body` 등 iOS 이름만 | 하드코딩 차단 (원칙 1·6) |
 | 2026-11-14 | 대비 검사는 `npm run tokens`에 묶어서 미달이면 빌드 실패 | 토큰을 고칠 때마다 자동으로 확인 |
 | 2026-11-14 | shadcn 연결은 `src/styles/shadcn.css`로 분리. 새 코드는 uc 이름만 | 붙여 넣은 shadcn 컴포넌트도 테마를 따르게 하되 이름은 하나로 |
+| 2026-11-14 | neutral tone 토큰 추가: solid = gray.90(다크에선 흰색), 위 글자 = 배경색 | Button `tone="neutral"`에 필요. 검정 버튼은 포트폴리오에 잘 어울림 |
+| 2026-11-14 | Badge tone에 `info` 추가 | 토큰이 이미 있고 '안내' 상태가 필요 |
+| 2026-11-14 | Input은 tone prop 없이 `error`가 있으면 danger | tone과 에러 문구가 따로 놀면 어긋남 |
+| 2026-11-14 | 컨테이너 `xs` = 448px (Dialog 폭) | Dialog에 임의 값(`max-w-[28rem]`)을 안 쓰려고 |
+| 2026-11-14 | `cn()`에 uc 토큰 이름을 알려 준 tailwind-merge | 기본 설정이면 `text-headline`(크기)과 `text-on-brand`(색)를 같은 그룹으로 보고 하나를 지움 |
+| 2026-11-14 | 아이콘 = lucide-react, Radix = `radix-ui` 통합 패키지 | shadcn 기본과 같음 |
+| 2026-11-14 | Storybook 문서 = MDX(remark-gfm) + 접근성 애드온, 문서 미리보기 칸은 테마 바탕색 | 원칙 11 문서 1장. 표를 쓰려고 GFM |

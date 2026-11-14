@@ -87,6 +87,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -137,6 +138,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-50);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-60);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-70);
@@ -171,6 +178,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -294,6 +303,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -344,6 +354,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-45);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-40);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-40);
@@ -378,6 +394,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -502,6 +520,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -552,6 +571,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-45);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-40);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-40);
@@ -586,6 +611,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -710,6 +737,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -760,6 +788,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-50);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-60);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-70);
@@ -794,6 +828,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -917,6 +953,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -967,6 +1004,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-40);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-30);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-30);
@@ -1001,6 +1044,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -1125,6 +1170,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -1175,6 +1221,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-40);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-30);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-30);
@@ -1209,6 +1261,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -1334,6 +1388,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -1384,6 +1439,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-50);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-60);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-70);
@@ -1418,6 +1479,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -1543,6 +1606,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -1593,6 +1657,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-40);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-30);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-30);
@@ -1627,6 +1697,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -1752,6 +1824,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -1802,6 +1875,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-40);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-30);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-30);
@@ -1836,6 +1915,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -1961,6 +2042,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -2010,6 +2092,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-50);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-60);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-70);
@@ -2044,6 +2132,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -2168,6 +2258,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -2217,6 +2308,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-45);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-40);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-40);
@@ -2251,6 +2348,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -2376,6 +2475,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -2425,6 +2525,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-45);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-40);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-40);
@@ -2459,6 +2565,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -2584,6 +2692,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -2633,6 +2742,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-50);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-60);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-70);
@@ -2667,6 +2782,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -2791,6 +2908,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -2840,6 +2958,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-40);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-30);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-30);
@@ -2874,6 +2998,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -2999,6 +3125,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -3048,6 +3175,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-40);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-30);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-30);
@@ -3082,6 +3215,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -3208,6 +3343,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -3257,6 +3393,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-50);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-60);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-70);
@@ -3291,6 +3433,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -3417,6 +3561,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -3466,6 +3611,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-40);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-30);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-30);
@@ -3500,6 +3651,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);
@@ -3626,6 +3779,7 @@
   --uc-duration-normal: 200ms;
   --uc-duration-slow: 320ms;
   --uc-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --uc-container-xs: 448px; /** Dialog */
   --uc-container-sm: 640px;
   --uc-container-md: 768px;
   --uc-container-lg: 1024px;
@@ -3675,6 +3829,12 @@
   --uc-bg-layer-1: var(--uc-color-background); /** iOS systemBackground */
   --uc-bg-layer-2: var(--uc-color-gray-5); /** iOS secondarySystemBackground */
   --uc-bg-layer-3: var(--uc-color-gray-10); /** iOS tertiarySystemBackground */
+  --uc-bg-neutral-solid: var(--uc-color-gray-90); /** 검은(다크에선 흰) 버튼 */
+  --uc-bg-neutral-solid-hover: var(--uc-color-gray-80);
+  --uc-bg-neutral-solid-pressed: var(--uc-color-gray-70);
+  --uc-bg-neutral-weak: var(--uc-color-gray-10);
+  --uc-bg-neutral-weak-hover: var(--uc-color-gray-20);
+  --uc-bg-neutral-weak-pressed: var(--uc-color-gray-30);
   --uc-bg-brand-solid: var(--uc-color-brand-40);
   --uc-bg-brand-solid-hover: var(--uc-color-brand-30);
   --uc-bg-brand-solid-pressed: var(--uc-color-brand-30);
@@ -3709,6 +3869,8 @@
   --uc-fg-muted: var(--uc-color-gray-70);
   --uc-fg-subtle: var(--uc-color-gray-60); /** 50은 bg.layer.2·3 위에서 4.5 미달이라 60 */
   --uc-fg-disabled: var(--uc-color-gray-40); /** 대비 4.5 미만 — 비활성 표시 전용 */
+  --uc-fg-neutral: var(--uc-color-gray-90); /** neutral tone 글자 = fg.default와 같음 */
+  --uc-fg-on-neutral: var(--uc-color-background); /** bg.neutral.solid 위 글자 */
   --uc-fg-brand: var(--uc-color-brand-60);
   --uc-fg-on-brand: var(--uc-color-white); /** bg.brand.solid 위 글자 */
   --uc-fg-danger: var(--uc-color-red-60);

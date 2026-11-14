@@ -4,7 +4,7 @@ import { STEPS } from '@/lib/palette'
 import { Section, useCssVars } from './_shared'
 
 const FAMILIES = ['gray', 'brand', 'red', 'green', 'yellow', 'blue']
-const TONES = ['brand', 'danger', 'success', 'warning', 'info']
+const TONES = ['neutral', 'brand', 'danger', 'success', 'warning', 'info']
 
 /** 브라우저가 계산한 색으로 대비를 잰다 */
 function ratio(a?: string, b?: string) {
