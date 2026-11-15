@@ -9,7 +9,7 @@
 | **M2** ✅ | 핵심 컴포넌트 5개 | 5개 × variant × tone 스토리 완성, 키보드·포커스 확인 |
 | **M3** ✅ | AI 레이어 | AI에게 카드 화면을 시켰을 때 하드코딩 값 0개 |
 | **M4** ✅ | 문서 정리 · 배포 | Storybook 배포, 문서만 보고 다른 프로젝트에 붙일 수 있다 |
-| **M5** ▶ | 실전 적용 | 포트폴리오에 적용, 부족한 토큰·컴포넌트 보강 |
+| **M5** ▶ | 실전 적용 | 다른 프로젝트 하나에 적용(대상 미정), 부족한 토큰·컴포넌트 보강 |
 
 ## M0 — 스파이크
 > 2026-11-14 완료. seed 하나 바꾸면 `tokens.css`·`UCColor.swift` 값이 바뀌고, Tailwind는 `var(--uc-*)`를 가리켜서 따라 바뀐다. Swift는 iOS SDK로 타입 검사 통과.
@@ -62,10 +62,11 @@
 - [ ] **저장소 Settings → Pages → Source를 GitHub Actions로** (사람이 한 번)
 - [x] 2차 컴포넌트: Textarea · Alert
 - [x] 다크 모드 weak 배경 채도 줄이기 (열린 질문 해결)
-- [ ] 나머지 2차(Separator, Select, Sheet, Tooltip)는 M5에서 필요할 때
+- [ ] 나머지 2차(Separator, Select, Sheet, Tooltip)는 M5 대상 프로젝트에서 필요할 때
 
 ## M5 — 실전 적용
-- [ ] 사진 포트폴리오에 적용 → 3차 컴포넌트(Figure, Gallery Grid, Lightbox, 내비게이션)
+- [ ] 적용할 프로젝트 정하기 — 사진 포트폴리오는 아님 (2026-11-15). 경로를 알려 주면 `npm run copy-to -- <경로>` 후 README "다른 프로젝트에 붙이기" 순서로
+- [ ] 그 프로젝트에 필요한 2차·3차 컴포넌트만 보강
 - [ ] 이때 workspace 전환 여부 판단 ([03-architecture](03-architecture.md#나중에-나눌-때-workspace-전환-조건))
 - [ ] 안정되면 Next.js 문서 사이트 + shadcn 레지스트리
 - [ ] 이후 다른 사이드 프로젝트(감시 뽀모도로 iOS는 Swift 토큰만)

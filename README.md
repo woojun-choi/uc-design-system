@@ -2,7 +2,7 @@
 
 uzun choi의 개인 디자인 시스템. **여러 프로젝트에 나만의 디자인 시스템을 적용하기 위해** 만든다. shadcn/ui 기반 토큰 중심 시스템으로, 웹과 iOS 사이드 프로젝트가 같이 쓰고 AI도 따른다.
 
-> **상태:** M4 완료 — 컴포넌트 7개, 문서, 다른 프로젝트에 붙이기, 배포 설정. 다음은 **M5 사진 포트폴리오에 적용** — [로드맵](docs/roadmap.md)
+> **상태:** M4 완료 — 컴포넌트 7개, 문서, 다른 프로젝트에 붙이기, 배포 설정. 다음은 **M5 실전 적용** (대상 프로젝트 미정) — [로드맵](docs/roadmap.md)
 
 ## 실행
 ```bash
@@ -80,4 +80,4 @@ Text("저장하기").foregroundStyle(c.fgOnBrand).background(c.bgBrandSolid)
 - **테마:** neutral(무채색, 사진이 주인공) · paper(미색 종이) × 라이트 / 다크 × 기본 / 고대비 — 속성이 없으면 시스템 설정
 - **컴포넌트:** shadcn/ui 위에 Button · Input · Textarea · Card · Badge · Alert · Dialog
 - **AI:** DESIGN.md(원본) + AGENTS.md · 스킬(안내) + lint(강제)
-- **쓰는 곳:** Storybook에서 먼저 완성 → 사진 포트폴리오 → 다른 사이드 프로젝트
+- **쓰는 곳:** Storybook에서 먼저 완성 → 다른 프로젝트 하나에 실전 적용(M5, 대상 미정) → 나머지 사이드 프로젝트

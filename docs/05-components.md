@@ -20,10 +20,10 @@ shadcn/ui 컴포넌트를 가져와 uc 토큰으로 바꿔 끼운다. Radix 기�
 
 ## 2차 — 기본기 채우기
 - [x] **Textarea** · **Alert** (M4, AI 테스트에서 빠져서 먼저). Input과 Textarea는 `field.tsx`(라벨·도움말·에러 틀)를 같이 씀
-- [ ] Typography(Heading/Text), Separator, Select, Sheet, Tooltip — 포트폴리오에서 필요해질 때
+- [ ] Typography(Heading/Text), Separator, Select, Sheet, Tooltip — M5 대상 프로젝트에서 필요해질 때
 
-## 3차 — 포트폴리오에 적용할 때
-Image/Figure(캡션), Gallery Grid, Lightbox, 내비게이션
+## 3차 — 적용하는 프로젝트에 맞춰
+그 프로젝트에서 필요해질 때 만든다. 사진 포트폴리오에 붙인다면: Image/Figure(캡션), Gallery Grid, Lightbox, 내비게이션
 
 ## 컴포넌트마다 갖출 것 (원칙 11)
 1. **언제 쓰나 / 언제 안 쓰나**
