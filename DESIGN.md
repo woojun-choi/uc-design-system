@@ -16,6 +16,7 @@
 |---|---|---|
 | **neutral** (기본) | 무채색 화면에 선명한 파랑 한 색. 둥근 모서리, 흐린 그림자. UI가 물러나고 콘텐츠가 주인공 | 사진 포트폴리오, 도구, 금융, 발표자료 |
 | **paper** | 미색 종이 위 붉은 갈색 잉크. 거의 각진 모서리, 흐림 없는 엇갈린 그림자(종이 겹침), 제목은 세리프(마루 부리) | 빈티지 카메라, 4컷 사진, 기록·일기 |
+| **ink** | 먹과 흰 종이. 포인트 색 없이 흑백과 투명도만, 각진 모서리, 그림자 대신 1px 선, 굵은 제목. **다크가 기본 얼굴**(`data-uc-mode="dark"` 권장). brand = neutral(먹색/흰 버튼) | 작업물이 주인공인 포트폴리오, 담백한 소개 페이지 |
 
 모드와 대비는 따로 고른다. 속성을 안 주면 **시스템 설정을 따른다.**
 
@@ -25,7 +26,7 @@
 <!-- data-uc-contrast: standard | more (없으면 prefers-contrast) -->
 ```
 
-- 테마 2 × 모드 2 × 대비 2 = 8조합 모두 대비 검사를 통과한다 (`npm run check:contrast`).
+- 테마 3 × 모드 2 × 대비 2 = 12조합 모두 대비 검사를 통과한다 (`npm run check:contrast`).
 - 모션 줄이기 설정이면 모든 `duration`이 0이 된다.
 
 ---
@@ -49,10 +50,10 @@
 - 다크도 같은 번호를 쓴다 (다크 배경 기준으로 다시 만들어서 밝기가 뒤집힌다).
 
 ### 2.3 배경
-| 토큰 | Tailwind | 쓰임 | neutral 라이트/다크 | paper 라이트/다크 |
-|---|---|---|---|---|
-| `bg.layer.1` | `bg-layer-1` | 화면 바탕 (iOS systemBackground) | `#ffffff` / `#171717` | `#f4ecda` / `#1e1a14` |
-| `bg.layer.2` | `bg-layer-2` | 카드·구획 (secondary) | `#f9f9f9` / `#1c1c1c` | `#efe7d4` / `#231f19` |
+| 토큰 | Tailwind | 쓰임 | neutral 라이트/다크 | paper 라이트/다크 | ink 라이트/다크 |
+|---|---|---|---|---|---|
+| `bg.layer.1` | `bg-layer-1` | 화면 바탕 (iOS systemBackground) | `#ffffff` / `#171717` | `#f4ecda` / `#1e1a14` | `#f2f2f3` / `#0d0d0d` |
+| `bg.layer.2` | `bg-layer-2` | 카드·구획 (secondary) | `#f9f9f9` / `#1c1c1c` | `#efe7d4` / `#231f19` | `#ececec` / `#151515` |
 | `bg.layer.3` | `bg-layer-3` | 카드 안 구획 (tertiary) | | |
 | `bg.overlay` | `bg-overlay` | Dialog 뒤 어둡게 | | |
 
@@ -95,10 +96,12 @@ shadcn 컴포넌트를 그대로 붙여 넣어도 테마를 따르도록 `--back
 ## 3. Typography Rules
 
 ### 3.1 글꼴
-| 토큰 | Tailwind | neutral | paper |
-|---|---|---|---|
-| `font.family.sans` | `font-sans` (기본) | Pretendard | Pretendard |
-| `font.family.heading` | `font-heading` | Pretendard | 마루 부리 (MaruBuri) |
+| 토큰 | Tailwind | neutral | paper | ink |
+|---|---|---|---|---|
+| `font.family.sans` | `font-sans` (기본) | Pretendard | Pretendard | Pretendard |
+| `font.family.heading` | `font-heading` | Pretendard | 마루 부리 (MaruBuri) | Pretendard |
+
+ink는 제목 5개(large-title~headline)의 굵기가 bold다. 다른 테마는 regular(headline만 semibold).
 
 글꼴 파일은 쓰는 쪽에서 불러온다:
 ```html
@@ -246,12 +249,12 @@ shadcn 컴포넌트를 그대로 붙여 넣어도 테마를 따르도록 `--back
 화면 바탕 `bg-layer-1` → 구획·카드 `bg-layer-2` → 그 안 구획 `bg-layer-3`. 세 단계를 넘기지 않는다.
 
 ### 5.4 모서리
-| 클래스 | neutral | paper | 쓰임 |
-|---|---|---|---|
-| `rounded-sm` | 6 | 0 | 작은 요소, 체크박스 |
-| `rounded-md` | 10 | 2 | 버튼, 인풋 |
-| `rounded-lg` | 16 | 4 | 카드, Dialog |
-| `rounded-full` | 원 | 원 | 배지, 아바타 |
+| 클래스 | neutral | paper | ink | 쓰임 |
+|---|---|---|---|---|
+| `rounded-sm` | 6 | 0 | 0 | 작은 요소, 체크박스 |
+| `rounded-md` | 10 | 2 | 0 | 버튼, 인풋 |
+| `rounded-lg` | 16 | 4 | 0 | 카드, Dialog |
+| `rounded-full` | 원 | 원 | 원 | 배지, 아바타 |
 
 ---
 
@@ -264,15 +267,15 @@ shadcn 컴포넌트를 그대로 붙여 넣어도 테마를 따르도록 `--back
 | `shadow-2` | 떠 있는 카드 (`Card variant="elevated"`) |
 | `shadow-3` | 겹쳐 뜨는 것 (Dialog, 메뉴) |
 
-neutral은 흐린 그림자, paper는 흐림 없이 어긋난 그림자(종이 겹침). 그림자를 직접 만들지 않는다.
+neutral은 흐린 그림자, paper는 흐림 없이 어긋난 그림자(종이 겹침), ink는 그림자 없이 1px 선. 그림자를 직접 만들지 않는다.
 
 ### 6.2 모션
-| 토큰 | 값 | 쓰임 |
+| 토큰 | 값 (ink) | 쓰임 |
 |---|---|---|
-| `duration.fast` | 120ms | hover, 닫힘 |
-| `duration.normal` | 200ms | 기본 전환, 열림 (`transition-*` 기본값) |
-| `duration.slow` | 320ms | 큰 화면 전환 |
-| `ease-standard` | cubic-bezier(0.2, 0, 0, 1) | 모든 전환 |
+| `duration.fast` | 120ms (150ms) | hover, 닫힘 |
+| `duration.normal` | 200ms (300ms) | 기본 전환, 열림 (`transition-*` 기본값) |
+| `duration.slow` | 320ms (500ms) | 큰 화면 전환 |
+| `ease-standard` | cubic-bezier(0.2, 0, 0, 1) (ink: 0.19, 1, 0.22, 1) | 모든 전환 |
 
 - 색·배경 바뀜은 `transition-colors` 하나면 된다 (길이·곡선은 기본값이 토큰).
 - 등장·퇴장 애니메이션은 `animate-fade-in/out`, `animate-pop-in/out`.
@@ -408,4 +411,4 @@ import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, Dialog
 ### 9.5 끝내기 전에
 1. `npm run lint` — 에러 0
 2. 새 문구가 7장 규칙에 맞는지
-3. 테마를 바꿔도(neutral ↔ paper, 다크) 깨지지 않는지 — 토큰만 썼다면 자동으로 맞다
+3. 테마를 바꿔도(neutral ↔ paper ↔ ink, 다크) 깨지지 않는지 — 토큰만 썼다면 자동으로 맞다

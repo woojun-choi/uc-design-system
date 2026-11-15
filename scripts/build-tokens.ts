@@ -176,7 +176,7 @@ cssBlocks.push(
 write(
   'src/styles/tokens.css',
   `/* ${HEADER} */
-/* <html data-uc-theme="neutral|paper" data-uc-mode="light|dark" data-uc-contrast="standard|more">
+/* <html data-uc-theme="neutral|paper|ink" data-uc-mode="light|dark" data-uc-contrast="standard|more">
    mode·contrast 속성이 없으면 시스템 설정(prefers-color-scheme, prefers-contrast)을 따른다. */
 
 ${cssBlocks.join('\n\n')}

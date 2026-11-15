@@ -57,7 +57,7 @@
 | 레이아웃 | 컨테이너 폭 `container.sm/md/lg` (640/768/1024) |
 
 ## 6. 모드
-테마 2 × 모드 3 = **6가지 조합**을 Storybook 툴바 토글로 확인한다.
+테마 3 × 모드 2 × 대비 2 = **12가지 조합**을 Storybook 툴바 토글로 확인한다.
 
 | 모드 | 내용 |
 |---|---|
@@ -65,22 +65,24 @@
 | dark | 검은 배경 기준으로 팔레트 재생성 |
 | high-contrast | 모드가 아니라 별도 축 — 라이트·다크 둘 다에 적용 (§9) |
 
-## 7. 테마 2개
-| | neutral | paper |
-|---|---|---|
-| 느낌 | 무채색 + 절제된 포인트 1색, 사진이 주인공 | 미색 종이, 잡지·콜라주 |
-| seed 색 | `#3e63dd` 선명한 파랑 | `#9c4a2f` 붉은 갈색 |
-| 배경 | 흰색·회색 | 미색 종이 |
-| 모서리 | 둥글게 | 거의 각지게 |
-| 그림자 | 부드럽게 | 종이를 겹친 느낌 |
-| 어울리는 곳 | 포트폴리오, SVG 아이콘 웹, 발표자료, 금융, 쿠션어 | 빈티지 디카 앱, 감시 뽀모도로, 4컷 사진 |
+## 7. 테마 3개
+| | neutral | paper | ink |
+|---|---|---|---|
+| 느낌 | 무채색 + 절제된 포인트 1색, 사진이 주인공 | 미색 종이, 잡지·콜라주 | 먹과 흰 종이, 흑백과 투명도만 |
+| seed 색 | `#3e63dd` 선명한 파랑 | `#9c4a2f` 붉은 갈색 | 없음 (brand = neutral) |
+| 배경 | 흰색·회색 | 미색 종이 | `#0c0c0c` 먹 / `#f3f3f3` (다크가 기본) |
+| 모서리 | 둥글게 | 거의 각지게 | 각지게 (0) |
+| 그림자 | 부드럽게 | 종이를 겹친 느낌 | 없음, 1px 선 |
+| 어울리는 곳 | 포트폴리오, SVG 아이콘 웹, 발표자료, 금융, 쿠션어 | 빈티지 디카 앱, 감시 뽀모도로, 4컷 사진 | 작업물 포트폴리오(uzun-choi), 소개 페이지 |
+
+ink는 2026-11-15에 디자인 시스템 없이 만든 포트폴리오(`~/dev/uzun-choi`)에서 뽑았다. 무엇을 어떻게 옮겼는지는 [§10](#10-ink-테마--포트폴리오에서-뽑은-값).
 
 처음부터 두 테마를 같이 만드는 이유: "테마만 바꿔서 무드가 다른 프로젝트를 감당할 수 있나"를 첫 단계에서 확인하려고.
 
 ## 8. 실제 구현 (M0)
 | 무엇 | 어디 |
 |---|---|
-| seed · 테마별 덮어쓰기 | `tokens/themes/{neutral,paper}.json` — `seed`는 생성 입력이라 출력에 안 나감 |
+| seed · 테마별 덮어쓰기 | `tokens/themes/{neutral,paper,ink}.json` — `seed`는 생성 입력이라 출력에 안 나감 |
 | 팔레트 생성 | `src/lib/palette.ts` (Leonardo, OKLCH 보간) — Storybook에서도 같은 코드 |
 | semantic | `tokens/semantic/color.json` — 라이트·다크가 같은 단계 번호를 씀 (단계 = 배경 대비라 자동으로 뒤집힘) |
 | 빌드 | `scripts/build-tokens.ts` → `npm run tokens` |
@@ -113,3 +115,30 @@ Tailwind 기본 색(`bg-blue-500` 등)과 기본 radius는 지웠다.
 | 그림자 paper | `shadow.1` 1px 1px 0 / `2` 2px 3px 0 / `3` 4px 6px 0, 먹색(gray.90) 15~25% — 흐림 없음 |
 | 모션 | `duration.fast` 120ms, `normal` 200ms, `slow` 320ms, `easing.standard` cubic-bezier(0.2, 0, 0, 1). `prefers-reduced-motion`이면 0 |
 | 95단계 | 미색·다크 배경에서 목표(18) 못 닿으면 검정/흰색 그대로 둠 |
+
+## 10. ink 테마 — 포트폴리오에서 뽑은 값
+`~/dev/uzun-choi`(Next.js, Tailwind 임의 값)의 클래스·스타일을 모두 세어서 반복되는 값을 토큰으로 옮겼다.
+
+| 사이트에서 쓰던 값 | 횟수 | → uc 토큰 | 메모 |
+|---|---|---|---|
+| 배경 `#0c0c0c` | 5+ | `color.background` 다크 (lightness 4 → `#0d0d0d`) | 다크가 기본 얼굴 |
+| `#f3f3f3` (메뉴 선, 툴팁) | 4 | `color.background` 라이트 (lightness 96 → `#f2f2f3`) | 사이트엔 라이트 모드가 없어서 이 색으로 만듦 |
+| `text-white` | 22 | `fg.default` 다크 = `#ffffff` | 순백 그대로 |
+| `text-white/90·80·70` | 10 | `fg.muted` | 투명도 대신 단계색 (배경이 바뀌어도 대비 보장) |
+| `text-white/40·60`, `opacity-30` | 5 | `fg.subtle` / `fg.disabled` | |
+| 구분선 `bg-white/40·60` 1~2px | 9 | `stroke.default` = gray.40 | 다른 테마(gray.20)보다 진함 |
+| `rgba(12,12,12,0.6)` + blur | 1 | `bg.overlay` = `#0c0c0c99` | blur는 토큰 없음 — 필요하면 `backdrop-blur-sm` |
+| 둥근 모서리 | 0 | `radius.sm·md·lg` = 0 | |
+| 그림자 | 0 | `shadow.*` = 1px 선 (8~16%) | Card·Dialog 경계용 |
+| `duration-300 ease-out` | 15+ | `duration.normal` = 300ms | fast 150, slow 500 |
+| `cubic-bezier(0.19,1,0.22,1)` | 2 | `easing.standard` | 글자 등장 곡선 |
+| `cubic-bezier(0.65,0,0.35,1)` | 2 | (토큰 없음) | 슬라이드 전환 전용. 두 번째 곡선이 필요해지면 `easing.emphasized` 추가 |
+| `font-bold` 제목·라벨 | 대부분 | `text.{largeTitle…headline}.weight` = bold | |
+| Pretendard | 전체 | `font.family.sans` | |
+| NEXON Lv2 Gothic (부제 1곳), itc-bradley-hand (서명 1곳) | 2 | (토큰 없음) | 한 번씩만 쓴 장식 글꼴 → 앱 쪽에서 직접 |
+| 포인트 색 | 없음 | `brand` = neutral과 같은 먹/흰 | 링크·포커스도 흑백 |
+
+**옮기지 않은 것**
+- 글자 크기: 1920px(데스크톱)·390px(모바일) 시안 기준 `vw` 값 40여 개(`text-[1.25vw]` = 24px, `text-[1.145833vw]` = 22px, `text-[4.10256vw]` = 16px …). 화면 폭에 비례하는 크기는 Dynamic Type 크기 체계와 맞지 않고 확대 설정을 무시해서, 크기는 기존 `text-*`를 그대로 쓴다. 사이트를 uc로 옮길 땐 24px → `text-title3`, 22px → `text-headline`/`text-body`, 16px → `text-callout` 근처로 맞춘다.
+- 간격: 모두 `vw` 임의 값이라 4px 단위로 반올림해서 옮긴다.
+- 갤러리·메뉴 오버레이·스크롤 내비 같은 조각 → 3차 컴포넌트 후보 ([05-components](05-components.md)).

@@ -23,7 +23,7 @@ shadcn/ui 컴포넌트를 가져와 uc 토큰으로 바꿔 끼운다. Radix 기�
 - [ ] Typography(Heading/Text), Separator, Select, Sheet, Tooltip — M5 대상 프로젝트에서 필요해질 때
 
 ## 3차 — 적용하는 프로젝트에 맞춰
-그 프로젝트에서 필요해질 때 만든다. 사진 포트폴리오에 붙인다면: Image/Figure(캡션), Gallery Grid, Lightbox, 내비게이션
+그 프로젝트에서 필요해질 때 만든다. 사진 포트폴리오에 붙인다면: Image/Figure(캡션), Gallery Grid, Lightbox, 내비게이션. ink를 뽑은 uzun-choi에서 보인 후보: 작업물 그리드(hover 축소), 전체 화면 메뉴 오버레이, 스크롤 내비
 
 ## 컴포넌트마다 갖출 것 (원칙 11)
 1. **언제 쓰나 / 언제 안 쓰나**

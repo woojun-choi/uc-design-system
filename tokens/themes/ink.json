@@ -1,0 +1,219 @@
+{
+  "$description": "ink — 먹과 흰 종이. 포인트 색 없이 흑백과 투명도만, 모서리 없음, 그림자 대신 가는 선. 다크가 기본 얼굴. uzun-choi 포트폴리오에서 뽑음 (docs/04-tokens.md §7)",
+  "seed": {
+    "$description": "다크 배경 = 사이트의 #0c0c0c(lightness 4 → #0d0d0d), 라이트 배경 = 사이트의 #f3f3f3(96 → #f2f2f3). brand는 쓰지 않지만 팔레트 계열은 있어야 해서 회색으로",
+    "gray": {
+      "$type": "color",
+      "$value": [
+        "#737373"
+      ]
+    },
+    "brand": {
+      "$type": "color",
+      "$value": [
+        "#737373"
+      ]
+    },
+    "lightness": {
+      "$type": "number",
+      "$value": {
+        "light": 96,
+        "dark": 4
+      }
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "$description": "사이트에 둥근 모서리가 하나도 없음. full(알약·원)만 남김",
+    "sm": {
+      "$value": "0px"
+    },
+    "md": {
+      "$value": "0px"
+    },
+    "lg": {
+      "$value": "0px"
+    },
+    "full": {
+      "$value": "9999px"
+    }
+  },
+  "shadow": {
+    "$type": "shadow",
+    "$description": "그림자 대신 1px 선 — 사이트는 그림자 없이 가는 선과 겹침으로만 층을 나눔",
+    "1": {
+      "$value": "0 0 0 1px rgb(12 12 12 / 0.08)"
+    },
+    "2": {
+      "$value": "0 0 0 1px rgb(12 12 12 / 0.12)"
+    },
+    "3": {
+      "$value": "0 0 0 1px rgb(12 12 12 / 0.16)"
+    }
+  },
+  "duration": {
+    "$type": "duration",
+    "$description": "사이트 hover·전환이 거의 다 300ms, 큰 글자 등장은 500ms",
+    "fast": {
+      "$value": "150ms"
+    },
+    "normal": {
+      "$value": "300ms"
+    },
+    "slow": {
+      "$value": "500ms"
+    }
+  },
+  "easing": {
+    "$type": "cubicBezier",
+    "standard": {
+      "$value": [
+        0.19,
+        1,
+        0.22,
+        1
+      ],
+      "$description": "사이트의 글자 등장 곡선(expo-out). 빠르게 나와 길게 멈춤"
+    }
+  },
+  "text": {
+    "largeTitle": {
+      "weight": {
+        "$value": "{font.weight.bold}"
+      }
+    },
+    "title1": {
+      "weight": {
+        "$value": "{font.weight.bold}"
+      }
+    },
+    "title2": {
+      "weight": {
+        "$value": "{font.weight.bold}"
+      }
+    },
+    "title3": {
+      "weight": {
+        "$value": "{font.weight.bold}"
+      }
+    },
+    "headline": {
+      "weight": {
+        "$value": "{font.weight.bold}"
+      }
+    }
+  },
+  "bg": {
+    "overlay": {
+      "$value": "#0c0c0c99",
+      "$description": "사이트 메뉴 뒤 rgba(12,12,12,0.6)"
+    },
+    "brand": {
+      "$description": "포인트 색 없음 → brand = neutral(먹색 버튼)",
+      "solid": {
+        "$value": "{color.gray.90}"
+      },
+      "solid-hover": {
+        "$value": "{color.gray.80}"
+      },
+      "solid-pressed": {
+        "$value": "{color.gray.70}"
+      },
+      "weak": {
+        "$value": "{color.gray.10}"
+      },
+      "weak-hover": {
+        "$value": "{color.gray.20}"
+      },
+      "weak-pressed": {
+        "$value": "{color.gray.30}"
+      }
+    }
+  },
+  "fg": {
+    "brand": {
+      "$value": "{color.gray.90}"
+    },
+    "on-brand": {
+      "$value": "{color.background}"
+    }
+  },
+  "stroke": {
+    "default": {
+      "$value": "{color.gray.40}",
+      "$description": "사이트 구분선(white/40~60)이 또렷해서 한 단계 진하게"
+    },
+    "focus": {
+      "$value": "{color.gray.90}"
+    }
+  },
+  "modes": {
+    "dark": {
+      "$description": "modes/dark.json이 brand·overlay를 되돌리므로 다시 덮어씀. 글자와 solid는 사이트처럼 순백",
+      "shadow": {
+        "1": {
+          "$value": "0 0 0 1px rgb(255 255 255 / 0.08)"
+        },
+        "2": {
+          "$value": "0 0 0 1px rgb(255 255 255 / 0.12)"
+        },
+        "3": {
+          "$value": "0 0 0 1px rgb(255 255 255 / 0.16)"
+        }
+      },
+      "bg": {
+        "brand": {
+          "solid": {
+            "$value": "{color.white}"
+          },
+          "solid-hover": {
+            "$value": "{color.gray.90}"
+          },
+          "solid-pressed": {
+            "$value": "{color.gray.80}"
+          },
+          "weak": {
+            "$value": "{color.gray.10}"
+          },
+          "weak-hover": {
+            "$value": "{color.gray.20}"
+          },
+          "weak-pressed": {
+            "$value": "{color.gray.30}"
+          }
+        },
+        "overlay": {
+          "$value": "#0c0c0c99"
+        },
+        "neutral": {
+          "solid": {
+            "$value": "{color.white}"
+          },
+          "solid-hover": {
+            "$value": "{color.gray.90}"
+          },
+          "solid-pressed": {
+            "$value": "{color.gray.80}"
+          }
+        }
+      },
+      "fg": {
+        "default": {
+          "$value": "{color.white}",
+          "$description": "사이트 본문 = #ffffff"
+        },
+        "brand": {
+          "$value": "{color.white}"
+        },
+        "neutral": {
+          "$value": "{color.white}"
+        }
+      },
+      "stroke": {
+        "focus": {
+          "$value": "{color.white}"
+        }
+      }
+    }
+  }
+}

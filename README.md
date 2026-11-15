@@ -54,7 +54,7 @@ npm i -D typescript@~5.9 eslint typescript-eslint eslint-plugin-better-tailwindc
 npm run copy-to -- ../MyApp/MyApp --swift
 ```
 ```swift
-let c = UCColors.neutral        // 또는 .paper
+let c = UCColors.neutral        // 또는 .paper, .ink
 Text("저장하기").foregroundStyle(c.fgOnBrand).background(c.bgBrandSolid)
 ```
 다크 모드 · 대비 높이기는 자동. 글자는 SwiftUI 기본(`.body`, `.headline` …)을 그대로 쓴다 — 웹의 `text-body` 등과 이름이 같다.
@@ -67,7 +67,7 @@ Text("저장하기").foregroundStyle(c.fgOnBrand).background(c.bgBrandSolid)
 | [01. 개요](docs/01-overview.md) | 왜 만드나, 흐름, 쓰는 곳, 성공 기준 |
 | [02. 원칙](docs/02-principles.md) | 원칙 12개 + 운영 원칙 4개 |
 | [03. 구조 · 기술 스택](docs/03-architecture.md) | 스택, 폴더 구조, 토큰 빌드 흐름 |
-| [04. 토큰 · 테마](docs/04-tokens.md) | 색 단계, semantic 토큰, 글자, 모드, neutral · paper |
+| [04. 토큰 · 테마](docs/04-tokens.md) | 색 단계, semantic 토큰, 글자, 모드, neutral · paper · ink |
 | [05. 컴포넌트](docs/05-components.md) | variant/tone API, 1~3차 목록, 문서 형식 |
 | [06. AI 레이어](docs/06-ai-layer.md) | DESIGN.md + AGENTS.md + 스킬 + lint |
 | [로드맵](docs/roadmap.md) | M0~M5 단계별 체크리스트 |
@@ -77,7 +77,7 @@ Text("저장하기").foregroundStyle(c.fgOnBrand).background(c.bgBrandSolid)
 
 ## 한눈에
 - **토큰:** DTCG JSON 한 소스 → CSS 변수(`--uc-*`, OKLCH) · Tailwind v4 · Swift
-- **테마:** neutral(무채색, 사진이 주인공) · paper(미색 종이) × 라이트 / 다크 × 기본 / 고대비 — 속성이 없으면 시스템 설정
+- **테마:** neutral(무채색, 사진이 주인공) · paper(미색 종이) · ink(흑백, 다크 기본) × 라이트 / 다크 × 기본 / 고대비 — 속성이 없으면 시스템 설정
 - **컴포넌트:** shadcn/ui 위에 Button · Input · Textarea · Card · Badge · Alert · Dialog
 - **AI:** DESIGN.md(원본) + AGENTS.md · 스킬(안내) + lint(강제)
 - **쓰는 곳:** Storybook에서 먼저 완성 → 다른 프로젝트 하나에 실전 적용(M5, 대상 미정) → 나머지 사이드 프로젝트

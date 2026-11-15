@@ -13,7 +13,7 @@ const preview: Preview = {
   globalTypes: {
     theme: {
       description: '테마',
-      toolbar: { title: '테마', icon: 'paintbrush', items: ['neutral', 'paper'], dynamicTitle: true },
+      toolbar: { title: '테마', icon: 'paintbrush', items: ['neutral', 'paper', 'ink'], dynamicTitle: true },
     },
     mode: {
       description: '모드',

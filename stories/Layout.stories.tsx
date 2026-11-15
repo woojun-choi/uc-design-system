@@ -17,7 +17,7 @@ function LayoutPage() {
           ))}
         </div>
       </Section>
-      <Section title="모서리" desc="테마마다 다름 — neutral 둥글게, paper 거의 각지게">
+      <Section title="모서리" desc="테마마다 다름 — neutral 둥글게, paper 거의 각지게, ink 각지게">
         <div className="flex gap-4">
           {['sm', 'md', 'lg', 'full'].map((r) => (
             <div key={r} className={`flex h-20 w-28 items-end border-2 border-strong bg-layer-2 p-2 rounded-${r}`}>
@@ -26,7 +26,7 @@ function LayoutPage() {
           ))}
         </div>
       </Section>
-      <Section title="그림자" desc="neutral 흐린 그림자, paper 흐림 없는 종이 겹침">
+      <Section title="그림자" desc="neutral 흐린 그림자, paper 흐림 없는 종이 겹침, ink 1px 선">
         <div className="flex gap-8 bg-layer-2 p-8">
           {[1, 2, 3].map((s) => (
             <div key={s} className={`flex h-24 w-36 items-end rounded-md bg-layer-1 p-3 shadow-${s}`}>

@@ -25,10 +25,10 @@ uc-design-system/
 │   ├── primitive/         #   색 단계·숫자
 │   ├── semantic/          #   fg/bg/stroke, 글자
 │   ├── modes/             #   dark · contrast-more 덮어쓰기
-│   └── themes/            #   _base.json(공통 seed) + neutral.json, paper.json
+│   └── themes/            #   _base.json(공통 seed) + neutral.json, paper.json, ink.json
 ├── scripts/
 │   ├── build-tokens.ts    # Leonardo 팔레트 + Style Dictionary 빌드
-│   └── check-contrast.ts  # 8조합 대비 검사
+│   └── check-contrast.ts  # 테마 × 모드 × 대비 전 조합 대비 검사
 ├── src/
 │   ├── styles/
 │   │   ├── tokens.css         #   자동 생성 — 직접 고치지 않음
